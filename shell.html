@@ -76,10 +76,11 @@ body{top:0!important}
 .tabs{display:flex;gap:4px;padding:12px 14px;border-bottom:1px solid var(--line);background:#0b0f15;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{
- position:relative;flex:0 0 auto;padding:11px 18px;border:1px solid var(--line);border-radius:9px;
+ position:relative;flex:0 0 auto;padding:11px 18px 11px 24px;border:1px solid var(--line);border-radius:9px;
  color:#8b98a5;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
  background:linear-gradient(180deg,#0f151c,#0a0e14);font-family:inherit;cursor:pointer;transition:.22s;white-space:nowrap
 }
+.tab::before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:transparent;transition:.2s}
 .tab:hover:not(.on){color:#c9d1d9;border-color:var(--line2);background:linear-gradient(180deg,#141b24,#0e131a)}
 .tab.on{
  color:var(--accent);border-color:rgba(126,231,199,.5);
@@ -87,12 +88,6 @@ body{top:0!important}
  box-shadow:inset 0 0 0 1px rgba(126,231,199,.15),0 0 20px rgba(126,231,199,.12);
  text-shadow:0 0 12px rgba(126,231,199,.4)
 }
-.tab.on::before{
- content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);
- width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)
-}
-.tab.on{padding-left:24px}
-.tab::before{content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:transparent;transition:.2s}
 .tab.on::before{background:var(--accent);box-shadow:0 0 8px var(--accent)}
 
 .panes{padding:24px 26px;background:linear-gradient(180deg,#0a0d12,#080b10);min-height:520px}
@@ -122,11 +117,32 @@ body{top:0!important}
 .bar{height:4px;background:#0d1219;border-radius:3px;overflow:hidden;border:1px solid #161d26}
 .bar i{display:block;height:100%;background:linear-gradient(90deg,#2d8f6f,#7ee7c7);width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px rgba(126,231,199,.5)}
 
+.skgroup{margin-bottom:22px}
+.skgroup:last-child{margin-bottom:0}
+.skgt{font-size:10px;letter-spacing:2.5px;color:var(--accent2);text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px dashed #1a232e;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:linear-gradient(180deg,#0f151c,#0a0e14);border-radius:6px;color:#9aa7ad;padding:6px 10px;font-size:10px;letter-spacing:.4px;transition:.2s;cursor:default}
+.chip:hover{border-color:rgba(126,231,199,.35);color:var(--accent);background:linear-gradient(180deg,rgba(126,231,199,.08),rgba(126,231,199,.02))}
+
 .cr{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #161d26;font-size:12px;flex-wrap:wrap}
 .cr:last-child{border-bottom:0}
 .cr a{color:var(--accent2);text-decoration:none;word-break:break-all;transition:.2s}
 .cr a:hover{color:var(--accent);text-decoration:underline}
-.cr .lb{color:var(--dim);min-width:80px;font-size:9.5px;letter-spacing:1.5px}
+.cr .lb{color:var(--dim);min-width:90px;font-size:9.5px;letter-spacing:1.5px}
+.msgbtn{background:linear-gradient(180deg,rgba(126,231,199,.13),rgba(126,231,199,.04));border:1px solid rgba(126,231,199,.35);color:var(--accent);padding:7px 14px;border-radius:7px;font:600 10.5px inherit;cursor:pointer;letter-spacing:1px;transition:.2s}
+.msgbtn:hover{background:linear-gradient(180deg,rgba(126,231,199,.22),rgba(126,231,199,.08));box-shadow:0 0 16px rgba(126,231,199,.15)}
+.msgbox{display:none;margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:11px;background:#060809}
+.msgbox.on{display:block;animation:fade .3s ease}
+.msgbox textarea{width:100%;min-height:80px;background:#0a0e13;border:1px solid var(--line2);border-radius:8px;color:var(--text);font:12px inherit;padding:10px;outline:none;resize:vertical;box-sizing:border-box}
+.msgbox textarea:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(126,231,199,.1)}
+.msgrow{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;flex-wrap:wrap}
+.msgcount{font-size:10px;color:var(--dim)}
+.msgsend{background:linear-gradient(180deg,#2d8f6f,#1e6b52);border:0;color:#0a0c10;padding:9px 20px;border-radius:7px;font:700 11px inherit;cursor:pointer;letter-spacing:1px;transition:.2s}
+.msgsend:hover{background:linear-gradient(180deg,#7ee7c7,#2d8f6f);box-shadow:0 0 16px rgba(126,231,199,.35)}
+.msgsend:disabled{opacity:.4;cursor:not-allowed}
+.msgresult{font-size:10.5px;margin-top:8px;min-height:16px}
+.msgresult.ok{color:var(--accent)}
+.msgresult.err{color:var(--rose)}
 
 .term{border:1px solid var(--line);background:#060809;border-radius:11px;padding:15px;font-size:12px;min-height:230px;max-height:320px;overflow-y:auto;font-family:inherit;line-height:1.7}
 .term::-webkit-scrollbar{width:6px}
@@ -134,6 +150,8 @@ body{top:0!important}
 .tl-line{color:#9eabb1;margin:2px 0;word-break:break-word}
 .tl-in{color:var(--accent)}
 .tl-out{color:#8b98a5}
+.tl-ok{color:var(--accent)}
+.tl-err{color:var(--rose)}
 .tl-row{display:flex;align-items:center;margin-top:8px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:#060809}
 .tl-row span{color:var(--accent);font-weight:700;font-size:12px;flex-shrink:0}
 .tl-row input{background:transparent;border:0;outline:0;color:#e6edf3;font:inherit;flex:1;padding:0;margin-left:8px;font-size:12px;min-width:0}
@@ -159,8 +177,7 @@ body{top:0!important}
 .htitle{letter-spacing:-1.5px}
 .sub{font-size:11px}
 .tabs{padding:10px}
-.tab{padding:10px 14px;font-size:11px;letter-spacing:1.2px}
-.tab.on{padding-left:22px}
+.tab{padding:10px 14px 10px 22px;font-size:11px;letter-spacing:1.2px}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 </style>
@@ -195,7 +212,7 @@ DİL
 <div class="met"><small>NODE</small><strong>TR-ESK</strong></div>
 <div class="met"><small>DURUM</small><strong id="tmSt">ÇEVRİMİÇİ</strong></div>
 <div class="met"><small>MOD</small><strong>OPS / SEC</strong></div>
-<div class="met"><small>BUILD</small><strong>v5.0.0</strong></div>
+<div class="met"><small>BUILD</small><strong>v6.0.0</strong></div>
 <div class="met"><small>UPTIME</small><strong id="tmUp">00:00:00</strong></div>
 <div class="met"><small>LOAD</small><strong id="tmLd">0.00</strong></div>
 </div>
@@ -233,10 +250,19 @@ DİL
 <div class="pane" id="pane-ct">
 <div class="shead"><span class="stitle">04 / İLETİŞİM</span><span class="scode">cat contact.txt</span></div>
 <div class="card">
-<div class="cr"><span class="lb">E-POSTA</span><a href="mailto:contact@murti.dev">contact@murti.dev</a></div>
-<div class="cr"><span class="lb">GITHUB</span><a href="https://github.com/muratgundogar" target="_blank" rel="noopener">github.com/muratgundogar</a></div>
+<div class="cr"><span class="lb">TELEGRAM</span><a href="https://t.me/routermurti" target="_blank" rel="noopener">@routermurti</a></div>
+<div class="cr"><span class="lb">GITHUB</span><a href="https://github.com/routermurti" target="_blank" rel="noopener">github.com/routermurti</a></div>
 <div class="cr"><span class="lb">KONUM</span><span style="color:#9aa7ad">Türkiye · TR-ESK node</span></div>
 <div class="cr"><span class="lb">DURUM</span><span class="ok">● operasyonlar için müsait</span></div>
+<div class="cr"><span class="lb">MESAJ</span><button id="msgToggle" class="msgbtn">MESAJ GÖNDER</button></div>
+<div id="msgBox" class="msgbox">
+<textarea id="msgText" maxlength="500" placeholder="mesajını yaz... (max 500 karakter)"></textarea>
+<div class="msgrow">
+<span class="msgcount"><span id="msgCount">0</span> / 500</span>
+<button id="msgSend" class="msgsend">GÖNDER</button>
+</div>
+<div id="msgResult" class="msgresult"></div>
+</div>
 </div>
 </div>
 
@@ -261,21 +287,80 @@ DİL
 const DATA={
  identity:{name:"Router Murti",role:"IT Operations · Cyber Security · Software",location:"Türkiye",status:"ONLINE"},
  experience:[
-  ["01","INTERNET CAFE","Sistem yönetimi, format operasyonları, script ve yazılım çalışmaları."],
-  ["02","BYNOGAME","Operasyon süreçleri, kriz yönetimi ve ekip koordinasyonu."],
-  ["03","GAMESATIS","Teknik altyapı, kullanıcı destek operasyonları ve koordinasyon."],
-  ["04","ÖZEL HASTANE","Bilgi işlem, HBYS ve IT süreçlerinde artan sorumluluk."],
-  ["05","ŞEHİR HASTANELERİ","Kritik IT altyapıları, güvenlik yazılımları ve sistem entegrasyonları."],
-  ["06","DENTAL LABORATUVAR","Üretim, dijital diş tasarımı, tesfiye, ış takibi, cari hesap ve lojistik."]
+  ["01","İSTİLA İNTERNET KAFE","Sistem yönetimi, format operasyonları, shell/script yazımı, siber güvenlik ve zafiyet araştırmacılığı. Oyun hile/script geliştirme: Metin2, Garry's Mod, GC105, GC, GTA San Andreas (MTA ve SA-MP). Cheat Engine, OllyDbg, IDA, ArtMoney, WPE Pro. Geçmiş siber faaliyetlerin yasal bedeli ödenmiş, profesyonel olgunluk kazandırmıştır."],
+  ["02","BYNOGAME","Operasyon Şefliği. Operasyon süreçleri, kriz yönetimi, ekip koordinasyonu, IT süreç yönetimi, oyun içi teslimat ve canlı destek kontrolü."],
+  ["03","GAMESATIŞ","Canlı destek, kullanıcı destek operasyonları, koordinasyon ve ürün teslimatı."],
+  ["04","ŞIRNAK ASKERLİK (11 AY)","Askerlik boyunca programlamaya devam etme disiplini. Bu imkanı sağlayan Vahap Paşa'ya teşekkürler."],
+  ["05","ÖZEL HASTANELER","IT ve Bilgi İşlem Elemanı olarak başlangıç, kısa sürede Bilgi İşlem Bölüm Şefliği, ardından Müdür Yardımcılığı ve Müdürlük pozisyonları."],
+  ["06","ŞEHİR HASTANELERİ","IT ve Bilgi İşlem Uzmanı. Güvenlik sistem kontrolleri ve testleri, sunucu kurulum ve yapılandırması, sunucu güvenlik yapılandırmaları, güvenlik yazılımları kurulum ve yönetimi, HBYS altyapı kontrolü, IP tabanlı telefon sistemleri kontrolü, V-Aksiyon izleme ve kontrolü, telefon ve kamera sistemleri kontrolü, CCTV kontrolü, güvenlik kartları yönetimi, ağ izleme ve trafik analizi, saldırı/atak tespit ve kontrol süreçleri, hastane sunucularında sürekli izleme ve müdahale."],
+  ["07","DENTAL LABORATUVAR","Joker eleman rolü. Kuryelik (motosiklet mekaniği), alçı döküm ve tesfiye, dijital diş tasarımı, iş kayıtları, cari hesaplar/ön muhasebe, ofis lojistiği temini. Aile aidiyetiyle bağlı olduğum bir yapı."]
  ],
- skills:[["OPERATIONS",92],["CYBER SECURITY",84],["SOFTWARE",78],["HBYS",88],["DENTAL TECH",90],["LOGISTICS",80],["MOTORCYCLE",95],["PROBLEM SOLVING",94]],
- story:"Teknolojiye olan merakı erken yaşlarda başlayan bir yolculuk; sistem yönetimi, yazılım, IT operasyonları, siber güvenlik ve saha operasyonlarının kesiştiği çok yönlü bir kariyere dönüştü. Büyük platformlarda operasyon süreçleri yönetti, sağlık sektöründe IT ve HBYS altyapılarında sorumluluk aldı. Bugün dental laboratuvarında üretim, dijital tasarım, tesfiye, ış takibi, cari hesap ve lojistik süreçlerinde aktif rol üstleniyor. Yönetim yaklaşımı gereksiz mikro yönetimden uzak; sorumluluk veren, doğrudan iletişim kuran ve sahada sonuca odaklanan bir çalışma modeline dayanıyor."
+ skills:{
+  "DİLLER":["Python","JavaScript","TypeScript","C","C++","C#","Java","PHP","Go","Rust","Ruby","Perl","Swift","Kotlin","Lua","Pawn","Bash","PowerShell","SQL","HTML","CSS","Assembly","Objective-C","Scala","Dart","R","MATLAB","VBA"],
+  "FRONTEND":["React","Vue","Angular","Svelte","Next.js","Nuxt","jQuery","Tailwind","Bootstrap","SASS","Webpack","Vite"],
+  "BACKEND":["Node.js","Express","Django","Flask","FastAPI","Laravel","Symfony","Spring",".NET","Ruby on Rails","NestJS"],
+  "MOBİL":["React Native","Flutter","Xamarin","Ionic","Cordova"],
+  "VERİTABANI":["MySQL","PostgreSQL","MSSQL","Oracle","SQLite","MongoDB","Redis","MariaDB","Cassandra","Firebase"],
+  "DEVOPS / SİSTEM":["Docker","Kubernetes","Jenkins","GitLab CI","GitHub Actions","Ansible","Terraform","Nginx","Apache","HAProxy"],
+  "İŞLETİM SİSTEMLERİ":["Kali Linux","Ubuntu","Debian","CentOS","Arch","Fedora","Windows Server","Windows 10/11","macOS","FreeBSD"],
+  "SİBER GÜVENLİK ARAÇLARI":["Metasploit","Burp Suite","Wireshark","Nmap","Aircrack-ng","John the Ripper","Hydra","SQLmap","Hashcat","Nikto","Gobuster","Dirb","Netcat","Socat","Tcpdump","Responder","BeEF","Empire","Cobalt Strike","Mimikatz","BloodHound"],
+  "REVERSE ENGINEERING":["IDA Pro","Ghidra","OllyDbg","x64dbg","Radare2","Cheat Engine","ArtMoney","WPE Pro","dnSpy","Frida"],
+  "OSINT":["Maltego","Shodan","theHarvester","Recon-ng","SpiderFoot","Sherlock","GHunt"],
+  "ADLİ BİLİŞİM":["Autopsy","FTK Imager","Volatility","Sleuth Kit","Cellebrite","EnCase"],
+  "AĞ":["Cisco Packet Tracer","GNS3","Wireshark","Nagios","Zabbix","PRTG","pfSense","OPNsense"],
+  "SANALLAŞTIRMA":["VMware","VirtualBox","Proxmox","Hyper-V","QEMU"],
+  "BULUT":["AWS","Azure","Google Cloud","DigitalOcean","Cloudflare"],
+  "VERSİYON KONTROL":["Git","GitHub","GitLab","Bitbucket","SVN"],
+  "TASARIM":["Figma","Adobe Photoshop","Adobe Illustrator","Adobe XD","Sketch","GIMP","Inkscape"],
+  "OYUN GELİŞTİRME / SCRIPT":["Unity","Unreal Engine","Godot","GameMaker","MTA:SA","SA-MP","Garry's Mod Lua","SourcePawn"],
+  "OFİS / ÜRETİM":["Microsoft Office","LibreOffice","Exocad","3Shape","V-Aksiyon","HBYS","AutoCAD"],
+  "EDITÖRLER / IDE":["VS Code","Visual Studio","IntelliJ IDEA","PyCharm","Sublime Text","Vim","Nano","Eclipse","Android Studio","Xcode"]
+ },
+ story:"Teknolojiye olan ilgim çok erken yaşlarda başladı; İstila İnternet Kafe'de sistem yönetimi, format operasyonları ve shell/script yazımıyla temellerimi attım. Aynı dönemde oyun hile ve script geliştirme, siber güvenlik ve zafiyet araştırmacılığı alanlarında saha deneyimi kazandım; bu süreçteki geçmiş faaliyetlerin yasal bedelini ödeyerek profesyonel olgunluğa ulaştım.\n\nKariyerim boyunca IT operasyonları, yazılım geliştirme ve siber güvenlik disiplinlerini bir arada yürüttüm. Büyük platformlarda (ByNoGame, GameSatış) operasyon şefliği yaparak ekip koordinasyonu, kriz yönetimi ve canlı destek süreçlerini yönettim. Şırnak'ta 11 ay askerlik yaptığım dönemde bile programlamaya devam ederek disiplinimi korudum.\n\nSağlık sektöründe IT ve Bilgi İşlem Elemanı olarak başladığım görevde kısa sürede Bilgi İşlem Bölüm Şefliği'ne, ardından Müdür Yardımcılığı ve Müdürlük pozisyonlarına yükseldim. Büyük entegre şehir hastanelerinde IT ve Bilgi İşlem Uzmanı olarak güvenlik sistemleri, sunucu kurulumları, HBYS altyapısı, ağ izleme ve saldırı tespit süreçlerini yönettim.\n\nBugün dental laboratuvarında üretim süreçlerinin kritik noktalarında joker eleman olarak görev alıyorum: kuryelik, alçı döküm ve tesfiye, dijital diş tasarımı, iş kayıtları, cari hesaplar, ön muhasebe ve ofis lojistiği.\n\nYönetim yaklaşımım gereksiz mikro yönetimden uzak; sorumluluk veren, doğrudan iletişim kuran ve sahada sonuca odaklanan bir model üzerine kuruludur.\n\nGeçmişte bilişim suçu kapsamında aldığım hüküm sonrasında yasal çerçeveye tam uyum sağlayarak; talep edildiği takdirde kolluk kuvvetleri ve adli mercilerle iş birliği yapıyor, teknik bilgi desteği sağlıyor ve yürütülen operasyonel faaliyetlerde aktif rol alıyorum."
 };
+
+const _TB="ODY4NzQ4NTY3MjpBQUg1TVVXY0kzeVhwaFRnYkk2RzBWS1pqY3p6dDdiRG5lRQ==";
+const _TC="ODg2MTY2NjkxNQ==";
+const _TG="aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==";
+const _TS="L3NlbmRNZXNzYWdl";
+const _decode=s=>atob(s);
 
 const $=id=>document.getElementById(id);
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pad=n=>String(n).padStart(2,"0");
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+
+let _lastMsg=0;
+
+async function sendToTelegram(text){
+ const now=Date.now();
+ if(now-_lastMsg<60000){
+  const wait=Math.ceil((60000-(now-_lastMsg))/1000);
+  return {ok:false,error:`çok hızlı — ${wait} saniye bekle`};
+ }
+ if(!text||!text.trim()) return {ok:false,error:"mesaj boş olamaz"};
+ if(text.length>500) return {ok:false,error:"mesaj 500 karakteri geçemez"};
+ try{
+  const url=_decode(_TG)+_decode(_TB)+_decode(_TS);
+  const res=await fetch(url,{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+    chat_id:_decode(_TC),
+    text:"[murtiCV] yeni mesaj:\n\n"+text,
+    parse_mode:"HTML"
+   })
+  });
+  const data=await res.json();
+  if(data.ok){
+   _lastMsg=now;
+   return {ok:true};
+  }
+  return {ok:false,error:data.description||"bilinmeyen hata"};
+ }catch(e){
+  return {ok:false,error:"bağlantı hatası"};
+ }
+}
 
 async function typeInto(el,txt,speed){
  el.textContent="";
@@ -301,21 +386,23 @@ function render(){
   });
 
   const skb=$("skb");
-  DATA.skills.forEach(([n,v])=>{
-   const w=document.createElement("div");
-   w.className="sk";
-   w.innerHTML=`<div class="skt"><span>${esc(n)}</span><b>${v}%</b></div><div class="bar"><i data-w="${v}"></i></div>`;
-   skb.appendChild(w);
+  Object.keys(DATA.skills).forEach(cat=>{
+   const g=document.createElement("div");
+   g.className="skgroup";
+   let html=`<div class="skgt">${esc(cat)}</div><div class="chips">`;
+   DATA.skills[cat].forEach(s=>{
+    html+=`<span class="chip">${esc(s)}</span>`;
+   });
+   html+="</div>";
+   g.innerHTML=html;
+   skb.appendChild(g);
   });
 
-  $("story").textContent=DATA.story;
+  $("story").innerHTML=esc(DATA.story).replace(/\n/g,"<br><br>");
 
   const p=$("profile");
   p.classList.remove("hide");
-  requestAnimationFrame(()=>{
-   p.classList.add("rdy");
-   setTimeout(()=>document.querySelectorAll(".bar i").forEach(b=>b.style.width=b.dataset.w+"%"),150);
-  });
+  requestAnimationFrame(()=>p.classList.add("rdy"));
  }catch(e){
   $("profile").classList.remove("hide");
   $("profile").classList.add("rdy");
@@ -330,7 +417,8 @@ async function bootSeq(){
   ["[00:00:04] session integrity verifying ............ ","OK"],
   ["[00:00:05] HBYS / IT pipelines linking ............. ","OK"],
   ["[00:00:06] secure channel opening ................. ","OK"],
-  ["[00:00:07] handshake .............................. ","READY"]
+  ["[00:00:07] telegram uplink connecting ............. ","OK"],
+  ["[00:00:08] handshake .............................. ","READY"]
  ];
  const b=$("blog");
  for(const [txt,tag] of L){
@@ -380,25 +468,61 @@ function startMatrix(){
 function initShell(){
  const t=$("term"),i=$("tin");
  const ln=(x,c)=>{const d=document.createElement("div");d.className="tl-line "+(c||"");d.textContent=x;t.appendChild(d);t.scrollTop=t.scrollHeight;};
- ln("murti-shell v5.0.0 — interactive session");
+ ln("murti-shell v6.0.0 — interactive session");
  ln("komut listesi için 'help' yaz.");
  ln("");
- i.addEventListener("keydown",e=>{
+ i.addEventListener("keydown",async e=>{
   if(e.key!=="Enter")return;
   const v=i.value.trim();if(!v)return;
   ln("root@murti:~$ "+v,"tl-in");i.value="";
   const c=v.toLowerCase();
-  if(c==="help") ln("mevcut: whoami, ls, cat profile.json, skills, contact, nmap, clear, exit","tl-out");
+  if(c==="help") ln("mevcut: whoami, ls, cat profile.json, skills, contact, not <mesaj>, nmap, clear, exit","tl-out");
   else if(c==="whoami") ln(DATA.identity.name+" — "+DATA.identity.role,"tl-out");
   else if(c==="ls") ln("murtiCV.py  profile.json  experience.log  skills.db  contact.txt","tl-out");
   else if(c==="cat profile.json") ln(JSON.stringify(DATA.identity,null,2),"tl-out");
-  else if(c==="skills") DATA.skills.forEach(([n,v])=>ln("["+"#".repeat(Math.round(v/10)).padEnd(10,".")+"] "+n+" "+v+"%","tl-out"));
-  else if(c==="contact"){ln("mail: contact@murti.dev","tl-out");ln("github: github.com/muratgundogar","tl-out");}
+  else if(c==="skills") Object.keys(DATA.skills).forEach(k=>ln("["+k+"] "+DATA.skills[k].join(", "),"tl-out"));
+  else if(c==="contact"){ln("telegram: @routermurti","tl-out");ln("github: github.com/routermurti","tl-out");}
+  else if(c.startsWith("not ")){
+   const msg=v.slice(4).trim();
+   if(!msg){ln("kullanım: not <mesaj>","tl-err");return;}
+   ln("gönderiliyor...","tl-out");
+   const r=await sendToTelegram(msg);
+   if(r.ok) ln("✓ mesaj iletildi","tl-ok");
+   else ln("✗ hata: "+r.error,"tl-err");
+  }
   else if(c==="nmap localhost"){ln("Starting Nmap 7.94 ...","tl-out");ln("PORT     STATE  SERVICE","tl-out");ln("22/tcp   open   ssh","tl-out");ln("80/tcp   open   http","tl-out");ln("443/tcp  open   https","tl-out");ln("Nmap done: 1 IP address scanned","tl-out");}
-  else if(c==="clear"){t.innerHTML="";ln("murti-shell v5.0.0 — interactive session");ln("komut listesi için 'help' yaz.");ln("");}
-  else if(c==="sudo su") ln("nice try. permission denied.","warn");
-  else if(c==="exit"){ln("session locked — reload to reconnect.","warn");i.disabled=true;}
+  else if(c==="clear"){t.innerHTML="";ln("murti-shell v6.0.0 — interactive session");ln("komut listesi için 'help' yaz.");ln("");}
+  else if(c==="sudo su") ln("nice try. permission denied.","tl-err");
+  else if(c==="exit"){ln("session locked — reload to reconnect.","tl-err");i.disabled=true;}
   else ln("command not found: "+v+" — try 'help'","tl-out");
+ });
+}
+
+function initMsgBox(){
+ const box=$("msgBox"),toggle=$("msgToggle"),txt=$("msgText"),btn=$("msgSend"),cnt=$("msgCount"),res=$("msgResult");
+ toggle.addEventListener("click",()=>{
+  box.classList.toggle("on");
+  if(box.classList.contains("on")) txt.focus();
+ });
+ txt.addEventListener("input",()=>{
+  cnt.textContent=txt.value.length;
+ });
+ btn.addEventListener("click",async()=>{
+  const v=txt.value.trim();
+  if(!v){res.className="msgresult err";res.textContent="✗ mesaj boş olamaz";return;}
+  btn.disabled=true;
+  res.className="msgresult";res.textContent="gönderiliyor...";
+  const r=await sendToTelegram(v);
+  btn.disabled=false;
+  if(r.ok){
+   res.className="msgresult ok";
+   res.textContent="✓ mesaj iletildi, teşekkürler";
+   txt.value="";cnt.textContent="0";
+   setTimeout(()=>{box.classList.remove("on");res.textContent="";},2500);
+  }else{
+   res.className="msgresult err";
+   res.textContent="✗ hata: "+r.error;
+  }
  });
 }
 
@@ -433,6 +557,7 @@ document.addEventListener("keydown",e=>{
  startMatrix();
  initTabs();
  initShell();
+ initMsgBox();
  try{
   await typeInto($("tcmd"),"python3 murtiCV.py --secure --profile --operator=router_murti",20);
   await bootSeq();
@@ -446,10 +571,10 @@ document.addEventListener("keydown",e=>{
  }
 })();
 
-console.log("%c[ murti-shell ]","color:#5ac8fa;font-weight:bold");
+console.log("%c[ murti-shell v6.0.0 ]","color:#5ac8fa;font-weight:bold");
 console.log("%cYetkisiz erişim tespit edildi. Buraya bakıyorsan ya meraklısın ya da geliştiricisin.","color:#ff6b81");
 console.log("%cRouter Murti — IT Ops · Cyber Security · Software","color:#7ee7c7;font-size:16px;font-weight:bold");
-console.log("%cgithub.com/muratgundogar","color:#5ac8fa");
+console.log("%cgithub.com/routermurti","color:#5ac8fa");
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
