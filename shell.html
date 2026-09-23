@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0a0c10">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="Router Murti — kişisel sistemler / online cv">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://amaanbosver.routermurti.workers.dev https://translate.google.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://amaanbosver.routermurti.workers.dev https://challenges.cloudflare.com https://translate.google.com">
 <title>root@murti:~$ ./murtiCV.py</title>
 <!-- son güncelleme: 04.02.2025 02:31 — gece gece düzeltmeler bitmedi -->
 <!-- telegram mesajları Cloudflare Worker üzerinden gönderiliyor, token burada yok -->
@@ -231,6 +231,7 @@ DİL
 <div class="cr"><span class="lb">MESAJ</span><button id="msgToggle" class="msgbtn">MESAJ GÖNDER</button></div>
 <div id="msgBox" class="msgbox">
 <textarea id="msgText" maxlength="500" placeholder="mesajını yaz... (max 500 karakter)"></textarea>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAFBimvfe5hRNXPVE" data-callback="onTurnstileOK" data-theme="dark" style="margin-top:10px"></div>
 <div class="msgrow">
 <span class="msgcount"><span id="msgCount">0</span> / 500</span>
 <button id="msgSend" class="msgsend">GÖNDER</button>
@@ -302,6 +303,8 @@ const pad=n=>String(n).padStart(2,"0");
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 
 let _lastMsg=0;
+let _turnstileToken="";
+function onTurnstileOK(token){ _turnstileToken=token; }
 
 async function sendToTelegram(text){
  const now=Date.now();
@@ -311,15 +314,18 @@ async function sendToTelegram(text){
  }
  if(!text||!text.trim()) return {ok:false,error:"mesaj boş olamaz"};
  if(text.length>500) return {ok:false,error:"mesaj 500 karakteri geçemez"};
+ if(!_turnstileToken) return {ok:false,error:"lütfen önce doğrulama kutucuğunu tamamla"};
  try{
   const res=await fetch(WORKER_URL,{
    method:"POST",
    headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({text:text})
+   body:JSON.stringify({text:text,turnstileToken:_turnstileToken})
   });
   const data=await res.json();
   if(data.ok){
    _lastMsg=now;
+   _turnstileToken="";
+   if(window.turnstile) turnstile.reset();
    return {ok:true};
   }
   return {ok:false,error:data.error||"bilinmeyen hata"};
@@ -552,5 +558,6 @@ console.log("%cRouter Murti — IT Ops · Cyber Security · Software","color:#7e
 console.log("%cgithub.com/routermurti","color:#5ac8fa");
 </script>
 <script src="https://translate.google.com/translate_a/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
