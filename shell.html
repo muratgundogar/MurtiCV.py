@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0c10">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="Router Murti — IT Operations · Cyber Security · Software · Dental Technology">
+<meta name="description" content="Router Murti — BT Operasyonları · Siber Güvenlik · Yazılım · Dental Teknoloji">
 <title>root@murti:~$ ./murtiCV.py</title>
 <style>
 :root{
@@ -35,10 +35,10 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.03;ba
 
 .acts{position:relative;flex-shrink:0}
 .lang{display:flex;align-items:center;gap:7px;border:1px solid var(--line2);background:linear-gradient(180deg,#141b24,#0e131a);color:var(--text);padding:8px 13px;border-radius:9px;font:600 11px inherit;cursor:pointer;transition:.2s;letter-spacing:.5px}
-.lang svg{width:13px;height:13px;stroke:var(--accent2);fill:none;stroke-width:1.7}
+.lang svg{width:13px;height:13px;stroke:var(--accent2);fill:none;stroke-width:1.7;flex-shrink:0}
 .lang:hover:not(:disabled){border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 1px rgba(126,231,199,.15),0 4px 14px rgba(126,231,199,.08)}
+.lang:hover:not(:disabled) svg{stroke:var(--accent)}
 .lang:active:not(:disabled){transform:scale(.97)}
-.lang:disabled{opacity:.35;cursor:not-allowed}
 .tr{display:none;position:absolute;right:0;top:48px;z-index:30;background:#0d1117;border:1px solid var(--line2);padding:10px;border-radius:11px;min-width:210px;box-shadow:0 20px 40px rgba(0,0,0,.6)}
 .goog-te-gadget{font-size:0!important}
 .goog-te-gadget .goog-te-combo{background:#080b10;color:var(--accent);border:1px solid var(--line2);padding:8px;width:186px;font:12px inherit;border-radius:6px;outline:none}
@@ -82,11 +82,11 @@ body{top:0!important}
 .pane{display:none;animation:fade .35s ease}
 .pane.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
 .stitle{font-size:10px;letter-spacing:2.5px;color:#7a8694;text-transform:uppercase}
 .scode{font-size:9px;color:var(--dim);font-family:inherit}
 .card{border:1px solid var(--line);background:linear-gradient(180deg,#0e1319,#0a0e13);border-radius:11px;padding:16px;margin-bottom:16px}
-.json{color:var(--accent2);font-size:11.5px;white-space:pre-wrap;line-height:1.8}
+.json{color:var(--accent2);font-size:11.5px;white-space:pre-wrap;line-height:1.8;word-break:break-word}
 .key{color:#7a8694}
 .val{color:var(--accent);font-weight:500}
 
@@ -105,7 +105,7 @@ body{top:0!important}
 .bar{height:4px;background:#0d1219;border-radius:3px;overflow:hidden;border:1px solid #161d26}
 .bar i{display:block;height:100%;background:linear-gradient(90deg,#2d8f6f,#7ee7c7);width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px rgba(126,231,199,.5)}
 
-.cr{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #161d26;font-size:12px}
+.cr{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #161d26;font-size:12px;flex-wrap:wrap}
 .cr:last-child{border-bottom:0}
 .cr a{color:var(--accent2);text-decoration:none;word-break:break-all;transition:.2s}
 .cr a:hover{color:var(--accent);text-decoration:underline}
@@ -118,8 +118,8 @@ body{top:0!important}
 .tl-in{color:var(--accent)}
 .tl-out{color:#8b98a5}
 .tl-row{display:flex;align-items:center;margin-top:8px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:#060809}
-.tl-row span{color:var(--accent);font-weight:700;font-size:12px}
-.tl-row input{background:transparent;border:0;outline:0;color:#e6edf3;font:inherit;flex:1;padding:0;margin-left:8px;font-size:12px}
+.tl-row span{color:var(--accent);font-weight:700;font-size:12px;flex-shrink:0}
+.tl-row input{background:transparent;border:0;outline:0;color:#e6edf3;font:inherit;flex:1;padding:0;margin-left:8px;font-size:12px;min-width:0}
 
 .sbar{border-top:1px solid var(--line);padding:11px 16px;display:flex;justify-content:space-between;color:var(--dim);font-size:9.5px;flex-wrap:wrap;gap:8px;background:#0a0e13;letter-spacing:.4px}
 .ok{color:var(--ok)}
@@ -131,8 +131,8 @@ body{top:0!important}
 @media(max-width:720px){
 .shell{width:calc(100% - 12px);margin:8px auto 28px}
 .tbar{height:48px;padding:0 12px}
-.path{max-width:130px;font-size:11px}
-.lang{padding:7px 11px;font-size:10px}
+.path{max-width:110px;font-size:11px}
+.lang{padding:7px 10px;font-size:10px;gap:5px}
 .boot{padding:24px 18px}
 .bgrid{grid-template-columns:1fr;gap:18px}
 .tel{grid-template-columns:repeat(2,1fr)}
@@ -156,9 +156,9 @@ body{top:0!important}
 <div class="path"><b>root</b>@<i>murti</i>:~$ ./murtiCV.py</div>
 </div>
 <div class="acts">
-<button id="langBtn" class="lang" disabled onclick="tglTr()">
+<button id="langBtn" class="lang" onclick="toggleTranslate()">
 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
-LANG
+DİL
 </button>
 <div id="tr" class="tr"><div id="google_translate_element"></div></div>
 </div>
@@ -167,15 +167,15 @@ LANG
 <section class="boot">
 <div class="bgrid">
 <div>
-<div class="kick">personal systems / profile node</div>
-<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ONLINE<span class="cur"></span></span></h1>
-<div class="sub">IT Operations · Cyber Security Research · Software · Dental Technology</div>
+<div class="kick">kişisel sistemler / profil düğümü</div>
+<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ<span class="cur"></span></span></h1>
+<div class="sub">BT Operasyonları · Siber Güvenlik Araştırması · Yazılım · Dental Teknoloji</div>
 <div class="pline"><span class="pr">root@<i>murti</i>:~$</span> <span id="tcmd" class="cmd"></span><span id="ccur" class="cur"></span></div>
 </div>
 <div class="tel">
 <div class="met"><small>NODE</small><strong>TR-ESK</strong></div>
-<div class="met"><small>STATUS</small><strong id="tmSt">ONLINE</strong></div>
-<div class="met"><small>MODE</small><strong>OPS / SEC</strong></div>
+<div class="met"><small>DURUM</small><strong id="tmSt">ÇEVRİMİÇİ</strong></div>
+<div class="met"><small>MOD</small><strong>OPS / SEC</strong></div>
 <div class="met"><small>BUILD</small><strong>v5.0.0</strong></div>
 <div class="met"><small>UPTIME</small><strong id="tmUp">00:00:00</strong></div>
 <div class="met"><small>LOAD</small><strong id="tmLd">0.00</strong></div>
@@ -186,43 +186,43 @@ LANG
 
 <div id="profile" class="hide">
 <nav class="tabs">
-<button class="tab on" data-t="id">identity</button>
-<button class="tab" data-t="exp">experience</button>
-<button class="tab" data-t="sk">skills</button>
-<button class="tab" data-t="ct">contact</button>
-<button class="tab" data-t="sh">shell</button>
+<button class="tab on" data-tab="id">kimlik</button>
+<button class="tab" data-tab="exp">deneyim</button>
+<button class="tab" data-tab="sk">yetenekler</button>
+<button class="tab" data-tab="ct">iletişim</button>
+<button class="tab" data-tab="sh">terminal</button>
 </nav>
 
 <section class="panes">
-<div class="pane on" id="p-id">
-<div class="shead"><span class="stitle">01 / identity</span><span class="scode">cat profile.json</span></div>
+<div class="pane on" id="pane-id">
+<div class="shead"><span class="stitle">01 / kimlik</span><span class="scode">cat profile.json</span></div>
 <div class="card"><div id="sum" class="json"></div></div>
-<div class="shead"><span class="stitle">field profile</span><span class="scode">whoami --extended</span></div>
+<div class="shead"><span class="stitle">alan profili</span><span class="scode">whoami --extended</span></div>
 <div class="card" style="color:#9aa7ad;font-size:12px;line-height:1.85" id="story"></div>
 </div>
 
-<div class="pane" id="p-exp">
-<div class="shead"><span class="stitle">02 / operational history</span><span class="scode">tail -n 06 experience.log</span></div>
+<div class="pane" id="pane-exp">
+<div class="shead"><span class="stitle">02 / operasyon geçmişi</span><span class="scode">tail -n 06 experience.log</span></div>
 <div class="card tl" id="tl"></div>
 </div>
 
-<div class="pane" id="p-sk">
-<div class="shead"><span class="stitle">03 / capabilities</span><span class="scode">nmap --skills</span></div>
+<div class="pane" id="pane-sk">
+<div class="shead"><span class="stitle">03 / yetenekler</span><span class="scode">nmap --skills</span></div>
 <div class="card" id="skb"></div>
 </div>
 
-<div class="pane" id="p-ct">
-<div class="shead"><span class="stitle">04 / contact</span><span class="scode">cat contact.txt</span></div>
+<div class="pane" id="pane-ct">
+<div class="shead"><span class="stitle">04 / iletişim</span><span class="scode">cat contact.txt</span></div>
 <div class="card">
-<div class="cr"><span class="lb">MAIL</span><a href="mailto:contact@murti.dev">contact@murti.dev</a></div>
+<div class="cr"><span class="lb">E-POSTA</span><a href="mailto:contact@murti.dev">contact@murti.dev</a></div>
 <div class="cr"><span class="lb">GITHUB</span><a href="https://github.com/muratgundogar" target="_blank" rel="noopener">github.com/muratgundogar</a></div>
-<div class="cr"><span class="lb">LOCATION</span><span style="color:#9aa7ad">Türkiye · TR-ESK node</span></div>
-<div class="cr"><span class="lb">STATUS</span><span class="ok">● available for operations</span></div>
+<div class="cr"><span class="lb">KONUM</span><span style="color:#9aa7ad">Türkiye · TR-ESK node</span></div>
+<div class="cr"><span class="lb">DURUM</span><span class="ok">● operasyonlar için müsait</span></div>
 </div>
 </div>
 
-<div class="pane" id="p-sh">
-<div class="shead"><span class="stitle">05 / interactive shell</span><span class="scode">bash -i</span></div>
+<div class="pane" id="pane-sh">
+<div class="shead"><span class="stitle">05 / etkileşimli terminal</span><span class="scode">bash -i</span></div>
 <div class="term" id="term"></div>
 <div class="tl-row"><span>root@murti:~$</span><input id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="komut yaz... (help)"></div>
 </div>
@@ -239,93 +239,94 @@ LANG
 
 <script>
 "use strict";
-(function(){
- const _k=0x5A;
- const _e=[
-  "T\x7C\x7F\x7E\x7D\x7C\x7B\x3A\x7A\x7D\x7E\x78\x7B\x3B\x79\x7F\x3A\x7A\x7D\x7E\x78\x7B\x3B\x7A\x7D\x7E\x78\x7B\x3B\x7A\x7D\x7E\x78",
-  "Pl\x7B\x7C\x7E\x7C\x7F\x7F\x3A\x7A\x7D\x7E\x78\x7B\x3B\x79\x7F\x3A\x7A\x7D\x7E\x78\x7B\x3B\x7A\x7D\x7E\x78\x7B\x3B\x7A\x7D\x7E\x78",
-  "Pl\x7B\x7C\x7E\x7C\x7F\x7F\x3A\x7A\x7D\x7E\x78\x7B"
- ];
- const _d=[];
- _e.forEach(s=>{let o="";for(let i=0;i<s.length;i++)o+=String.fromCharCode(s.charCodeAt(i)^_k);_d.push(o);});
-})();
-
 const DATA={
- identity:{name:"Router Murti",role:"IT Operations \u00b7 Cyber Security \u00b7 Software",location:"T\u00fcrkiye",status:"ONLINE"},
+ identity:{name:"Router Murti",role:"IT Operations · Cyber Security · Software",location:"Türkiye",status:"ONLINE"},
  experience:[
-  ["01","INTERNET CAFE","Sistem y\u00f6netimi, format operasyonlar\u0131, script ve yaz\u0131l\u0131m \u00e7al\u0131\u015fmalar\u0131."],
-  ["02","BYNOGAME","Operasyon s\u00fcre\u00e7leri, kriz y\u00f6netimi ve ekip koordinasyonu."],
-  ["03","GAMESATIS","Teknik altyap\u0131, kullan\u0131c\u0131 destek operasyonlar\u0131 ve koordinasyon."],
-  ["04","\u00d6ZEL HASTANE","Bilgi i\u015flem, HBYS ve IT s\u00fcre\u00e7lerinde artan sorumluluk."],
-  ["05","\u015eEH\u0130R HASTANELER\u0130","Kritik IT altyap\u0131lar\u0131, g\u00fcvenlik yaz\u0131l\u0131mlar\u0131 ve sistem entegrasyonlar\u0131."],
-  ["06","DENTAL LABORATUVAR","\u00dcretim, dijital di\u015f tasar\u0131m\u0131, tesfiye, \u0131\u015f takibi, cari hesap ve lojistik."]
+  ["01","INTERNET CAFE","Sistem yönetimi, format operasyonları, script ve yazılım çalışmaları."],
+  ["02","BYNOGAME","Operasyon süreçleri, kriz yönetimi ve ekip koordinasyonu."],
+  ["03","GAMESATIS","Teknik altyapı, kullanıcı destek operasyonları ve koordinasyon."],
+  ["04","ÖZEL HASTANE","Bilgi işlem, HBYS ve IT süreçlerinde artan sorumluluk."],
+  ["05","ŞEHİR HASTANELERİ","Kritik IT altyapıları, güvenlik yazılımları ve sistem entegrasyonları."],
+  ["06","DENTAL LABORATUVAR","Üretim, dijital diş tasarımı, tesfiye, ış takibi, cari hesap ve lojistik."]
  ],
  skills:[["OPERATIONS",92],["CYBER SECURITY",84],["SOFTWARE",78],["HBYS",88],["DENTAL TECH",90],["LOGISTICS",80],["MOTORCYCLE",95],["PROBLEM SOLVING",94]],
- story:"Teknolojiye olan merak\u0131 erken ya\u015flarda ba\u015flayan bir yolculuk; sistem y\u00f6netimi, yaz\u0131l\u0131m, IT operasyonlar\u0131, siber g\u00fcvenlik ve saha operasyonlar\u0131n\u0131n kesi\u015fti\u011fi \u00e7ok y\u00f6nl\u00fc bir kariyere d\u00f6n\u00fc\u015ft\u00fc. B\u00fcy\u00fck platformlarda operasyon s\u00fcre\u00e7leri y\u00f6netti, sa\u011fl\u0131k sekt\u00f6r\u00fcnde IT ve HBYS altyap\u0131lar\u0131nda sorumluluk ald\u0131. Bug\u00fcn dental laboratuvar\u0131nda \u00fcretim, dijital tasar\u0131m, tesfiye, \u0131\u015f takibi, cari hesap ve lojistik s\u00fcre\u00e7lerinde aktif rol \u00fcstleniyor. Y\u00f6netim yakla\u015f\u0131m\u0131 gereksiz mikro y\u00f6netimden uzak; sorumluluk veren, do\u011frudan ileti\u015fim kuran ve sahada sonuca odaklanan bir \u00e7al\u0131\u015fma modeline dayan\u0131yor."
+ story:"Teknolojiye olan merakı erken yaşlarda başlayan bir yolculuk; sistem yönetimi, yazılım, IT operasyonları, siber güvenlik ve saha operasyonlarının kesiştiği çok yönlü bir kariyere dönüştü. Büyük platformlarda operasyon süreçleri yönetti, sağlık sektöründe IT ve HBYS altyapılarında sorumluluk aldı. Bugün dental laboratuvarında üretim, dijital tasarım, tesfiye, ış takibi, cari hesap ve lojistik süreçlerinde aktif rol üstleniyor. Yönetim yaklaşımı gereksiz mikro yönetimden uzak; sorumluluk veren, doğrudan iletişim kuran ve sahada sonuca odaklanan bir çalışma modeline dayanıyor."
 };
 
-const $=i=>document.getElementById(i);
-const sl=ms=>new Promise(r=>setTimeout(r,ms));
+const $=id=>document.getElementById(id);
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pad=n=>String(n).padStart(2,"0");
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 
-async function typ(el,txt,sp){el.textContent="";for(const c of txt){el.textContent+=c;await sl(sp||22);}}
+async function typeInto(el,txt,speed){
+ el.textContent="";
+ for(const c of txt){el.textContent+=c;await sleep(speed||22);}
+}
 
 function render(){
  try{
   $("heroName").textContent=DATA.identity.name.toUpperCase();
-  $("sum").innerHTML=`<span class="key">"name"</span>: <span class="val">"${esc(DATA.identity.name)}"</span>,\n<span class="key">"role"</span>: <span class="val">"${esc(DATA.identity.role)}"</span>,\n<span class="key">"location"</span>: <span class="val">"${esc(DATA.identity.location)}"</span>,\n<span class="key">"status"</span>: <span class="val">"${esc(DATA.identity.status)}"</span>`;
+
+  $("sum").innerHTML=
+   `<span class="key">"name"</span>: <span class="val">"${esc(DATA.identity.name)}"</span>,\n`+
+   `<span class="key">"role"</span>: <span class="val">"${esc(DATA.identity.role)}"</span>,\n`+
+   `<span class="key">"location"</span>: <span class="val">"${esc(DATA.identity.location)}"</span>,\n`+
+   `<span class="key">"status"</span>: <span class="val">"${esc(DATA.identity.status)}"</span>`;
+
   const tl=$("tl");
   DATA.experience.forEach(x=>{
-   const r=document.createElement("div");r.className="exp";
+   const r=document.createElement("div");
+   r.className="exp";
    r.innerHTML=`<div class="num">${esc(x[0])}</div><div class="co">${esc(x[1])}</div><div class="dc">${esc(x[2])}</div>`;
    tl.appendChild(r);
   });
+
   const skb=$("skb");
   DATA.skills.forEach(([n,v])=>{
-   const w=document.createElement("div");w.className="sk";
+   const w=document.createElement("div");
+   w.className="sk";
    w.innerHTML=`<div class="skt"><span>${esc(n)}</span><b>${v}%</b></div><div class="bar"><i data-w="${v}"></i></div>`;
    skb.appendChild(w);
   });
+
   $("story").textContent=DATA.story;
+
   const p=$("profile");
   p.classList.remove("hide");
   requestAnimationFrame(()=>{
    p.classList.add("rdy");
    setTimeout(()=>document.querySelectorAll(".bar i").forEach(b=>b.style.width=b.dataset.w+"%"),150);
   });
-  $("langBtn").disabled=false;
  }catch(e){
   $("profile").classList.remove("hide");
   $("profile").classList.add("rdy");
-  $("langBtn").disabled=false;
  }
 }
 
 async function bootSeq(){
  const L=[
-  ["[00:00:01] initializing secure profile node ......... ","OK"],
-  ["[00:00:02] mounting kernel modules ................. ","OK"],
-  ["[00:00:03] loading operator identity ............... ","OK"],
-  ["[00:00:04] verifying session integrity ............ ","OK"],
-  ["[00:00:05] linking HBYS / IT pipelines ............ ","OK"],
-  ["[00:00:06] opening secure channel ................. ","OK"],
-  ["[00:00:07] handshake complete ..................... ","READY"]
+  ["[00:00:01] secure profile node initializing ......... ","OK"],
+  ["[00:00:02] kernel modules mounting ................. ","OK"],
+  ["[00:00:03] operator identity loading ............... ","OK"],
+  ["[00:00:04] session integrity verifying ............ ","OK"],
+  ["[00:00:05] HBYS / IT pipelines linking ............. ","OK"],
+  ["[00:00:06] secure channel opening ................. ","OK"],
+  ["[00:00:07] handshake .............................. ","READY"]
  ];
  const b=$("blog");
- for(const [l,s] of L){
+ for(const [txt,tag] of L){
   const row=document.createElement("span");
-  row.textContent=l;
-  const tag=document.createElement("b");
-  tag.textContent=s;
-  tag.className=s==="OK"?"ok":"cy";
-  row.appendChild(tag);
+  row.textContent=txt;
+  const t=document.createElement("b");
+  t.textContent=tag;
+  t.className=tag==="OK"?"ok":"cy";
+  row.appendChild(t);
   b.appendChild(row);
-  await sl(180);
+  await sleep(180);
  }
 }
 
-function clock(){
+function startClock(){
  const t0=Date.now();
  setInterval(()=>{
   const d=new Date();
@@ -338,15 +339,17 @@ function clock(){
  },1000);
 }
 
-function matrix(){
+function startMatrix(){
  const c=$("mx"),x=c.getContext("2d");
  const ch="01アイウエオカキクケコサシスセソタチツテトナニヌネノABCDEF#$%&*+=<>";
  const fs=14;let cols,ys;
- const sz=()=>{c.width=innerWidth;c.height=innerHeight;cols=Math.floor(c.width/fs);ys=Array(cols).fill(1);};
- sz();addEventListener("resize",sz);
+ const size=()=>{c.width=innerWidth;c.height=innerHeight;cols=Math.floor(c.width/fs);ys=Array(cols).fill(1);};
+ size();addEventListener("resize",size);
  setInterval(()=>{
-  x.fillStyle="rgba(10,12,16,0.09)";x.fillRect(0,0,c.width,c.height);
-  x.fillStyle="#7ee7c7";x.font=fs+"px monospace";
+  x.fillStyle="rgba(10,12,16,0.09)";
+  x.fillRect(0,0,c.width,c.height);
+  x.fillStyle="#7ee7c7";
+  x.font=fs+"px monospace";
   for(let i=0;i<cols;i++){
    x.fillText(ch[Math.floor(Math.random()*ch.length)],i*fs,ys[i]*fs);
    if(ys[i]*fs>c.height&&Math.random()>0.975) ys[i]=0;
@@ -355,65 +358,79 @@ function matrix(){
  },72);
 }
 
-function shell(){
+function initShell(){
  const t=$("term"),i=$("tin");
  const ln=(x,c)=>{const d=document.createElement("div");d.className="tl-line "+(c||"");d.textContent=x;t.appendChild(d);t.scrollTop=t.scrollHeight;};
  ln("murti-shell v5.0.0 — interactive session");
- ln("type 'help' to list available commands.");
+ ln("komut listesi için 'help' yaz.");
  ln("");
  i.addEventListener("keydown",e=>{
   if(e.key!=="Enter")return;
   const v=i.value.trim();if(!v)return;
   ln("root@murti:~$ "+v,"tl-in");i.value="";
   const c=v.toLowerCase();
-  if(c==="help") ln("available: whoami, ls, cat profile.json, skills, contact, nmap, clear, exit","tl-out");
+  if(c==="help") ln("mevcut: whoami, ls, cat profile.json, skills, contact, nmap, clear, exit","tl-out");
   else if(c==="whoami") ln(DATA.identity.name+" — "+DATA.identity.role,"tl-out");
   else if(c==="ls") ln("murtiCV.py  profile.json  experience.log  skills.db  contact.txt","tl-out");
   else if(c==="cat profile.json") ln(JSON.stringify(DATA.identity,null,2),"tl-out");
   else if(c==="skills") DATA.skills.forEach(([n,v])=>ln("["+"#".repeat(Math.round(v/10)).padEnd(10,".")+"] "+n+" "+v+"%","tl-out"));
   else if(c==="contact"){ln("mail: contact@murti.dev","tl-out");ln("github: github.com/muratgundogar","tl-out");}
   else if(c==="nmap localhost"){ln("Starting Nmap 7.94 ...","tl-out");ln("PORT     STATE  SERVICE","tl-out");ln("22/tcp   open   ssh","tl-out");ln("80/tcp   open   http","tl-out");ln("443/tcp  open   https","tl-out");ln("Nmap done: 1 IP address scanned","tl-out");}
-  else if(c==="clear"){t.innerHTML="";ln("murti-shell v5.0.0 — interactive session");ln("type 'help' to list available commands.");ln("");}
+  else if(c==="clear"){t.innerHTML="";ln("murti-shell v5.0.0 — interactive session");ln("komut listesi için 'help' yaz.");ln("");}
   else if(c==="sudo su") ln("nice try. permission denied.","warn");
   else if(c==="exit"){ln("session locked — reload to reconnect.","warn");i.disabled=true;}
   else ln("command not found: "+v+" — try 'help'","tl-out");
  });
 }
 
-function tglTr(){const b=$("tr");b.style.display=b.style.display==="block"?"none":"block";}
-function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"tr",includedLanguages:"tr,en,de,es,fr,it,pt,ru,ar,zh-CN,ja,ko,nl,pl",autoDisplay:false},"google_translate_element");}
+function toggleTranslate(){
+ const b=$("tr");
+ b.style.display=b.style.display==="block"?"none":"block";
+}
+function googleTranslateElementInit(){
+ new google.translate.TranslateElement({pageLanguage:"tr",includedLanguages:"tr,en,de,es,fr,it,pt,ru,ar,zh-CN,ja,ko,nl,pl",autoDisplay:false},"google_translate_element");
+}
 
-function tabs(){
+function initTabs(){
  document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
   document.querySelectorAll(".pane").forEach(x=>x.classList.remove("on"));
   t.classList.add("on");
-  const p=$("p-"+t.dataset.t);if(p)p.classList.add("on");
+  const p=$("pane-"+t.dataset.tab);
+  if(p)p.classList.add("on");
  }));
 }
 
-document.addEventListener("keydown",e=>{if(e.key==="F9"){e.preventDefault();if(!$("langBtn").disabled)tglTr();}});
+document.addEventListener("keydown",e=>{
+ if(e.key==="F9"){e.preventDefault();toggleTranslate();}
+});
+
+(function antiFrame(){
+ try{ if(window.top!==window.self) window.top.location=window.self.location; }catch(e){}
+})();
 
 (async function(){
- clock();matrix();tabs();shell();
+ startClock();
+ startMatrix();
+ initTabs();
+ initShell();
  try{
-  await typ($("tcmd"),"python3 murtiCV.py --secure --profile --operator=router_murti",20);
+  await typeInto($("tcmd"),"python3 murtiCV.py --secure --profile --operator=router_murti",20);
   await bootSeq();
   $("ccur").style.display="none";
-  await sl(280);
+  await sleep(280);
   render();
  }catch(e){
   $("ccur").style.display="none";
   $("profile").classList.remove("hide");
   $("profile").classList.add("rdy");
-  $("langBtn").disabled=false;
  }
 })();
 
 console.log("%c[ murti-shell ]","color:#5ac8fa;font-weight:bold");
 console.log("%cYetkisiz erişim tespit edildi. Buraya bakıyorsan ya meraklısın ya da geliştiricisin.","color:#ff6b81");
 console.log("%cRouter Murti — IT Ops · Cyber Security · Software","color:#7ee7c7;font-size:16px;font-weight:bold");
-console.log("%cgithub.com/muratgundogar","color:#5ac8fa");
+console.log("%cgithub.com/routermurti","color:#5ac8fa");
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
