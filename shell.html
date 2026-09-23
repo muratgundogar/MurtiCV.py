@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0c10">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="Router Murti — BT Operasyonları · Siber Güvenlik · Yazılım · Dental Teknoloji">
+<meta name="description" content="Router Murti — kişisel sistemler / online cv">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org https://translate.google.com">
 <title>root@murti:~$ ./murtiCV.py</title>
 <!-- son güncelleme: 04.02.2025 02:31 — gece gece düzeltmeler bitmedi -->
@@ -43,8 +43,12 @@ body{top:0!important}
 .bgrid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
 .kick{color:var(--dim);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
 .htitle{font-size:clamp(30px,6.5vw,54px);line-height:1;margin:8px 0 4px;color:#f0f6fc;font-weight:700;letter-spacing:-2px}
-.htitle .accent{color:var(--accent);text-shadow:0 0 30px rgba(126,231,199,.35)}
-.sub{color:var(--muted);max-width:720px;font-size:12px;letter-spacing:.3px}
+.htitle .accent{color:var(--accent);text-shadow:0 0 30px rgba(126,231,199,.35);display:inline-flex;align-items:baseline;gap:6px}
+.htitle .accent .cur{flex-shrink:0;vertical-align:baseline}
+.sub{color:#a4b0b6;max-width:760px;font-size:12.5px;letter-spacing:.3px;margin-top:10px;line-height:1.7}
+.sub .sep{color:var(--dim);margin:0 6px}
+.sub .tag{color:var(--accent2)}
+.sub .tag2{color:var(--amber)}
 .pline{margin-top:22px;color:#8b98a5;font-size:13px}
 .pr{color:var(--accent);font-weight:700}
 .pr i{color:var(--accent2);font-style:normal}
@@ -57,8 +61,9 @@ body{top:0!important}
 .met strong{display:block;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.5px}
 .met:nth-child(2) strong{color:var(--accent2)}
 .met:nth-child(4) strong{color:var(--amber)}
-.blog{margin-top:18px;color:var(--dim);font-size:10px;min-height:78px;line-height:1.7}
-.blog span{display:block}
+.blog{margin-top:18px;color:#7a8694;font-size:10.5px;min-height:78px;line-height:1.9;letter-spacing:.2px}
+.blog span{display:block;color:#8b98a5}
+.blog b{font-weight:600;letter-spacing:.5px}
 .blog .ok{color:var(--accent)}
 .blog .cy{color:var(--accent2)}
 .hide{display:none!important}
@@ -88,12 +93,12 @@ body{top:0!important}
 .exp:hover{background:rgba(126,231,199,.02)}
 .num{color:var(--dim);font-size:10px;padding-top:3px;letter-spacing:1px}
 .co{color:#e6edf3;font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
-.dc{color:#8b98a5;font-size:10.5px;line-height:1.65}
+.dc{color:#95a3ab;font-size:10.5px;line-height:1.75}
 .skgroup{margin-bottom:22px}
 .skgroup:last-child{margin-bottom:0}
 .skgt{font-size:10px;letter-spacing:2.5px;color:var(--accent2);text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px dashed #1a232e;font-weight:700}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{border:1px solid var(--line);background:linear-gradient(180deg,#0f151c,#0a0e14);border-radius:6px;color:#9aa7ad;padding:6px 10px;font-size:10px;letter-spacing:.4px;transition:.2s;cursor:default}
+.chip{border:1px solid var(--line);background:linear-gradient(180deg,#0f151c,#0a0e14);border-radius:6px;color:#a4b0b6;padding:6px 10px;font-size:10px;letter-spacing:.4px;transition:.2s;cursor:default}
 .chip:hover{border-color:rgba(126,231,199,.35);color:var(--accent);background:linear-gradient(180deg,rgba(126,231,199,.08),rgba(126,231,199,.02))}
 .cr{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #161d26;font-size:12px;flex-wrap:wrap}
 .cr:last-child{border-bottom:0}
@@ -144,7 +149,7 @@ body{top:0!important}
 .exp{grid-template-columns:32px 1fr;gap:10px}
 .exp .dc{grid-column:2}
 .htitle{letter-spacing:-1.5px}
-.sub{font-size:11px}
+.sub{font-size:11.5px}
 .tabs{padding:10px}
 .tab{padding:10px 14px 10px 22px;font-size:11px;letter-spacing:1.2px}
 }
@@ -172,9 +177,9 @@ DİL
 <section class="boot">
 <div class="bgrid">
 <div>
-<div class="kick">kişisel sistemler / profil düğümü</div>
-<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ<span class="cur"></span></span></h1>
-<div class="sub">BT Operasyonları · Siber Güvenlik Araştırması · Yazılım · Dental Teknoloji</div>
+<div class="kick">kişisel sistemler / online cv</div>
+<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ <span class="cur"></span></span></h1>
+<div class="sub">Klasik özgeçmiş bana göre değil. Ben işi <span class="tag">mutfağında</span> öğrendim — modem sesiyle büyüdüm, sistem kurcaladım, script yazdım. Bugün aynı merakla <span class="tag">BT operasyonları</span>, <span class="tag2">siber güvenlik</span>, <span class="tag">yazılım</span> ve <span class="tag2">dental teknoloji</span> arasında mekik dokuyorum. Yani hem kablo çekerim, hem kod yazarım, hem de dijital diş tasarlarım.</div>
 <div class="pline"><span class="pr">root@<i>murti</i>:~$</span> <span id="tcmd" class="cmd"></span><span id="ccur" class="cur"></span></div>
 </div>
 <div class="tel">
@@ -203,7 +208,7 @@ DİL
 <div class="shead"><span class="stitle">01 / KİMLİK</span><span class="scode">cat profile.json</span></div>
 <div class="card"><div id="sum" class="json"></div></div>
 <div class="shead"><span class="stitle">ALAN PROFİLİ</span><span class="scode">whoami --extended</span></div>
-<div class="card" style="color:#9aa7ad;font-size:12px;line-height:1.85" id="story"></div>
+<div class="card" style="color:#a4b0b6;font-size:12.5px;line-height:1.9" id="story"></div>
 </div>
 
 <div class="pane" id="pane-exp">
@@ -271,7 +276,6 @@ const _getToken=()=>_dec(_p1)+_dec(_p2)+_dec(_p3)+_dec(_p4)+_dec(_p5)+_dec(_p6)+
 /* eski kod: tek parça token — revize ettim, parçaladım */
 // const _TB="ODY4NzQ4NTY3MjpBQUg1TVVXY0kzeVhwaFRnYkk2RzBWS1pqY3p6dDdiRG5lRQ==";
 
-/* profil verisi — türkçe karakterler \u ile kaçışlı */
 const DATA={
  identity:{name:"Router Murti",role:"IT Operations · Cyber Security · Software",location:"Türkiye",status:"ONLINE"},
  experience:[
@@ -304,7 +308,7 @@ const DATA={
   "OFİS / ÜRETİM":["Microsoft Office","LibreOffice","Exocad","3Shape","V-Aksiyon","HBYS","AutoCAD"],
   "EDITÖRLER / IDE":["VS Code","Visual Studio","IntelliJ IDEA","PyCharm","Sublime Text","Vim","Nano","Eclipse","Android Studio","Xcode"]
  },
- story:"Teknolojiye olan ilgim çok erken yaşlarda başladı; İstila İnternet Kafe'de sistem yönetimi, format operasyonları ve shell/script yazımıyla temellerimi attım. Aynı dönemde oyun hile ve script geliştirme, siber güvenlik ve zafiyet araştırmacılığı alanlarında saha deneyimi kazandım; bu süreçteki geçmiş faaliyetlerin yasal bedelini ödeyerek profesyonel olgunluğa ulaştım.\n\nKariyerim boyunca IT operasyonları, yazılım geliştirme ve siber güvenlik disiplinlerini bir arada yürüttüm. Büyük platformlarda (ByNoGame, GameSatış) operasyon şefliği yaparak ekip koordinasyonu, kriz yönetimi ve canlı destek süreçlerini yönettim. Şırnak'ta 11 ay askerlik yaptığım dönemde bile programlamaya devam ederek disiplinimi korudum.\n\nSağlık sektöründe IT ve Bilgi İşlem Elemanı olarak başladığım görevde kısa sürede Bilgi İşlem Bölüm Şefliği'ne, ardından Müdür Yardımcılığı ve Müdürlük pozisyonlarına yükseldim. Büyük entegre şehir hastanelerinde IT ve Bilgi İşlem Uzmanı olarak güvenlik sistemleri, sunucu kurulumları, HBYS altyapısı, ağ izleme ve saldırı tespit süreçlerini yönettim.\n\nBugün dental laboratuvarında üretim süreçlerinin kritik noktalarında joker eleman olarak görev alıyorum: kuryelik, alçı döküm ve tesfiye, dijital diş tasarımı, iş kayıtları, cari hesaplar, ön muhasebe ve ofis lojistiği.\n\nYönetim yaklaşımım gereksiz mikro yönetimden uzak; sorumluluk veren, doğrudan iletişim kuran ve sahada sonuca odaklanan bir model üzerine kuruludur.\n\nGeçmişte bilişim suçu kapsamında aldığım hüküm sonrasında yasal çerçeveye tam uyum sağlayarak; talep edildiği takdirde kolluk kuvvetleri ve adli mercilerle iş birliği yapıyor, teknik bilgi desteği sağlıyor ve yürütülen operasyonel faaliyetlerde aktif rol alıyorum."
+ story:"Klasik özgeçmiş formatı bana göre değil. Ben bu işin mutfağında büyüdüm: 8 yaşında İstila İnternet Kafe'de bilgisayarları kurcalarken öğrendim, sonra script yazmayı, sistem formatlamayı, güvenlik açıklarını bulmayı. Bir dönem bu merakın yasal bedelini ödedim — bugün aynı bilgiyi yasal çerçevede, doğru tarafta kullanıyorum.\n\nKariyerim boyunca hep iki farklı dünyada yaşadım: bir yanda operasyonun içinde koşturan adam (ByNoGame, GameSatış gibi büyük platformlarda operasyon şefliği, kriz yönetimi, canlı destek, oyun içi teslimat), diğer yanda teknik derinlik (sistem yönetimi, sunucu kurulumu, HBYS altyapı, ağ izleme, saldırı tespiti). Şırnak'ta 11 ay askerlikte bile programlamayı bırakmadım — bana o imkanı sağlayan Vahap Paşa'ya minnettarım.\n\nSağlık sektörüne IT elemanı olarak girdim, kısa sürede Bilgi İşlem Bölüm Şefliği'ne, sonra Müdür Yardımcılığı'na, en son Müdürlük pozisyonuna yükseldim. Büyük entegre şehir hastanelerinde güvenlik sistemlerini, sunucu kurulumlarını, HBYS altyapısını, kamera/CCTV sistemlerini, ağ trafiğini ve saldırı tespit süreçlerini yönettim. Yani hem kablo çektim, hem kod yazdım, hem sunucu kurdum, hem güvenlik testi yaptım.\n\nBugün hayatımın en keyifli dönemindeyim: ailem dediğim bir dental laboratuvarda joker elemanım. Kuryelik yapıyorum (motosikletten çok iyi anlarım), alçı döküyorum, tesfiye yapıyorum, dijital diş tasarlıyorum, iş kayıtlarını tutuyorum, cari hesapları ve ön muhasebeyi çeviriyorum, ofis lojistiğini sağlıyorum. Yani kısaca: nerede ihtiyaç varsa orada.\n\nYönetim anlayışım basit: mikro yönetim yok, gereksiz hiyerarşi yok, sorumluluk var. Ekibime güvenip işi bırakırım, kriz anında doğrudan çözerim, bürokrasiye takılmam.\n\nGeçmişte bilişim suçu kapsamında aldığım hükümden sonra yasal çerçeveye tam uyum sağladım. Bugün talep edildiğinde kolluk kuvvetleri ve adli mercilerle iş birliği yapıyor, teknik bilgi desteği sağlıyor, operasyonel faaliyetlerde aktif rol alıyorum."
 };
 
 const $=id=>document.getElementById(id);
@@ -503,12 +507,12 @@ function initMsgBox(){
    setTimeout(()=>{box.classList.remove("on");res.textContent="";},2500);
   }else{
    res.className="msgresult err";
-   res.textContent="✗ hata: anti "+r.error;
+   res.textContent="✗ hata: "+r.error;
   }
  });
 }
 
-function toggleTranslateFrame(){
+function toggleTranslate(){
  const b=$("tr");
  b.style.display=b.style.display==="block"?"none":"block";
 }
@@ -530,7 +534,7 @@ document.addEventListener("keydown",e=>{
  if(e.key==="F9"){e.preventDefault();toggleTranslate();}
 });
 
-(function(){
+(function antiFrame(){
  try{ if(window.top!==window.self) window.top.location=window.self.location; }catch(e){}
 })();
 
@@ -545,7 +549,6 @@ document.addEventListener("keydown",e=>{
 })();
 
 (async function(){
- // konsolu temizle — giriş izi bırakma
  try{console.clear();}catch(e){}
  startClock();
  startMatrix();
