@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#0a0c10">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="Router Murti — kişisel sistemler / online cv">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org https://translate.google.com">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://amaanbosver.routermurti.workers.dev https://translate.google.com">
 <title>root@murti:~$ ./murtiCV.py</title>
 <!-- son güncelleme: 04.02.2025 02:31 — gece gece düzeltmeler bitmedi -->
-<!-- telegram proxy mantığı burada, token'ı parçaladım -->
+<!-- telegram mesajları Cloudflare Worker üzerinden gönderiliyor, token burada yok -->
 <style>
 :root{--bg:#0a0c10;--panel:#0e1218;--panel2:#121821;--line:#1c2430;--line2:#28323f;--accent:#7ee7c7;--accent2:#5ac8fa;--amber:#ffb454;--rose:#ff6b81;--text:#c9d1d9;--muted:#6b7684;--dim:#4a5563;--ok:#7ee7c7}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -258,20 +258,8 @@ DİL
 
 <script>
 "use strict";
-/* telegram token parçaları — kolay okunmasın diye böldüm */
-const _p1="ODY4NzQ4";
-const _p2="NTY3MjpB";
-const _p3="QUg1TVVX";
-const _p4="Y0kzeVhw";
-const _p5="aFRnYkk2";
-const _p6="RzBWS1pq";
-const _p7="Y3p6dDdi";
-const _p8="RG5lRQ==";
-const _cid="ODg2MTY2NjkxNQ==";
-const _api="aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==";
-const _ep="L3NlbmRNZXNzYWdl";
-const _dec=s=>atob(s);
-const _getToken=()=>_dec(_p1)+_dec(_p2)+_dec(_p3)+_dec(_p4)+_dec(_p5)+_dec(_p6)+_dec(_p7)+_dec(_p8);
+/* mesajlar artık Cloudflare Worker üzerinden gidiyor, token burada tutulmuyor */
+const WORKER_URL = "https://amaanbosver.routermurti.workers.dev";
 
 const DATA={
  identity:{name:"Router Murti",role:"IT Operations · Cyber Security · Software",location:"Türkiye",status:"ONLINE"},
@@ -324,22 +312,17 @@ async function sendToTelegram(text){
  if(!text||!text.trim()) return {ok:false,error:"mesaj boş olamaz"};
  if(text.length>500) return {ok:false,error:"mesaj 500 karakteri geçemez"};
  try{
-  const url=_dec(_api)+_getToken()+_dec(_ep);
-  const res=await fetch(url,{
+  const res=await fetch(WORKER_URL,{
    method:"POST",
    headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({
-    chat_id:_dec(_cid),
-    text:"[murtiCV] yeni mesaj:\n\n"+esc(text),
-    parse_mode:"HTML"
-   })
+   body:JSON.stringify({text:text})
   });
   const data=await res.json();
   if(data.ok){
    _lastMsg=now;
    return {ok:true};
   }
-  return {ok:false,error:data.description||"bilinmeyen hata"};
+  return {ok:false,error:data.error||"bilinmeyen hata"};
  }catch(e){
   return {ok:false,error:"bağlantı hatası"};
  }
