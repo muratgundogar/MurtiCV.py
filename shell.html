@@ -38,7 +38,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.03;ba
 .lang svg{width:13px;height:13px;stroke:var(--accent2);fill:none;stroke-width:1.7;flex-shrink:0}
 .lang:hover:not(:disabled){border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 1px rgba(126,231,199,.15),0 4px 14px rgba(126,231,199,.08)}
 .lang:hover:not(:disabled) svg{stroke:var(--accent)}
-.lang:active:not(:disabled){transform:scale(.97)}
+.lang:active{transform:scale(.97)}
 .tr{display:none;position:absolute;right:0;top:48px;z-index:30;background:#0d1117;border:1px solid var(--line2);padding:10px;border-radius:11px;min-width:210px;box-shadow:0 20px 40px rgba(0,0,0,.6)}
 .goog-te-gadget{font-size:0!important}
 .goog-te-gadget .goog-te-combo{background:#080b10;color:var(--accent);border:1px solid var(--line2);padding:8px;width:186px;font:12px inherit;border-radius:6px;outline:none}
@@ -72,36 +72,53 @@ body{top:0!important}
 .hide{display:none!important}
 #profile{opacity:0;transition:opacity .6s}
 #profile.rdy{opacity:1}
-.tabs{display:flex;gap:2px;padding:8px 12px;border-bottom:1px solid var(--line);background:#0b0f15;overflow-x:auto;scrollbar-width:none}
+
+.tabs{display:flex;gap:4px;padding:12px 14px;border-bottom:1px solid var(--line);background:#0b0f15;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;padding:9px 15px;border:0;border-radius:8px;color:var(--muted);font-size:11px;background:transparent;font-family:inherit;cursor:pointer;transition:.18s;white-space:nowrap;letter-spacing:.4px;font-weight:500}
-.tab.on{background:linear-gradient(180deg,rgba(126,231,199,.13),rgba(126,231,199,.05));color:var(--accent);box-shadow:inset 0 0 0 1px rgba(126,231,199,.25)}
-.tab:hover:not(.on){color:#c9d1d9;background:rgba(255,255,255,.02)}
+.tab{
+ position:relative;flex:0 0 auto;padding:11px 18px;border:1px solid var(--line);border-radius:9px;
+ color:#8b98a5;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+ background:linear-gradient(180deg,#0f151c,#0a0e14);font-family:inherit;cursor:pointer;transition:.22s;white-space:nowrap
+}
+.tab:hover:not(.on){color:#c9d1d9;border-color:var(--line2);background:linear-gradient(180deg,#141b24,#0e131a)}
+.tab.on{
+ color:var(--accent);border-color:rgba(126,231,199,.5);
+ background:linear-gradient(180deg,rgba(126,231,199,.14),rgba(126,231,199,.04));
+ box-shadow:inset 0 0 0 1px rgba(126,231,199,.15),0 0 20px rgba(126,231,199,.12);
+ text-shadow:0 0 12px rgba(126,231,199,.4)
+}
+.tab.on::before{
+ content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);
+ width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)
+}
+.tab.on{padding-left:24px}
+.tab::before{content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:transparent;transition:.2s}
+.tab.on::before{background:var(--accent);box-shadow:0 0 8px var(--accent)}
 
 .panes{padding:24px 26px;background:linear-gradient(180deg,#0a0d12,#080b10);min-height:520px}
 .pane{display:none;animation:fade .35s ease}
 .pane.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
-.stitle{font-size:10px;letter-spacing:2.5px;color:#7a8694;text-transform:uppercase}
-.scode{font-size:9px;color:var(--dim);font-family:inherit}
+.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;padding-bottom:10px;border-bottom:1px dashed #1a232e}
+.stitle{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;font-weight:700;text-shadow:0 0 12px rgba(126,231,199,.3)}
+.scode{font-size:9.5px;color:var(--dim);font-family:inherit;padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#0a0e13}
 .card{border:1px solid var(--line);background:linear-gradient(180deg,#0e1319,#0a0e13);border-radius:11px;padding:16px;margin-bottom:16px}
 .json{color:var(--accent2);font-size:11.5px;white-space:pre-wrap;line-height:1.8;word-break:break-word}
 .key{color:#7a8694}
 .val{color:var(--accent);font-weight:500}
 
 .tl{display:grid;gap:0}
-.exp{display:grid;grid-template-columns:40px 165px 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid #161d26;transition:.2s}
+.exp{display:grid;grid-template-columns:40px 175px 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid #161d26;transition:.2s}
 .exp:last-child{border-bottom:0}
 .exp:hover{background:rgba(126,231,199,.02)}
 .num{color:var(--dim);font-size:10px;padding-top:3px;letter-spacing:1px}
-.co{color:#e6edf3;font-size:10.5px;font-weight:700;letter-spacing:.8px}
+.co{color:#e6edf3;font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
 .dc{color:#8b98a5;font-size:10.5px;line-height:1.65}
 
 .sk{margin-bottom:14px}
 .sk:last-child{margin-bottom:0}
-.skt{display:flex;justify-content:space-between;font-size:10.5px;color:#9aa7ad;margin-bottom:6px;letter-spacing:.5px}
-.skt b{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+.skt{display:flex;justify-content:space-between;font-size:10.5px;color:#9aa7ad;margin-bottom:6px;letter-spacing:.8px;text-transform:uppercase}
+.skt b{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
 .bar{height:4px;background:#0d1219;border-radius:3px;overflow:hidden;border:1px solid #161d26}
 .bar i{display:block;height:100%;background:linear-gradient(90deg,#2d8f6f,#7ee7c7);width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px rgba(126,231,199,.5)}
 
@@ -141,7 +158,9 @@ body{top:0!important}
 .exp .dc{grid-column:2}
 .htitle{letter-spacing:-1.5px}
 .sub{font-size:11px}
-.tab{padding:8px 12px;font-size:10px}
+.tabs{padding:10px}
+.tab{padding:10px 14px;font-size:11px;letter-spacing:1.2px}
+.tab.on{padding-left:22px}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 </style>
@@ -186,33 +205,33 @@ DİL
 
 <div id="profile" class="hide">
 <nav class="tabs">
-<button class="tab on" data-tab="id">kimlik</button>
-<button class="tab" data-tab="exp">deneyim</button>
-<button class="tab" data-tab="sk">yetenekler</button>
-<button class="tab" data-tab="ct">iletişim</button>
-<button class="tab" data-tab="sh">terminal</button>
+<button class="tab on" data-tab="id">KİMLİK</button>
+<button class="tab" data-tab="exp">DENEYİM</button>
+<button class="tab" data-tab="sk">YETENEKLER</button>
+<button class="tab" data-tab="ct">İLETİŞİM</button>
+<button class="tab" data-tab="sh">TERMİNAL</button>
 </nav>
 
 <section class="panes">
 <div class="pane on" id="pane-id">
-<div class="shead"><span class="stitle">01 / kimlik</span><span class="scode">cat profile.json</span></div>
+<div class="shead"><span class="stitle">01 / KİMLİK</span><span class="scode">cat profile.json</span></div>
 <div class="card"><div id="sum" class="json"></div></div>
-<div class="shead"><span class="stitle">alan profili</span><span class="scode">whoami --extended</span></div>
+<div class="shead"><span class="stitle">ALAN PROFİLİ</span><span class="scode">whoami --extended</span></div>
 <div class="card" style="color:#9aa7ad;font-size:12px;line-height:1.85" id="story"></div>
 </div>
 
 <div class="pane" id="pane-exp">
-<div class="shead"><span class="stitle">02 / operasyon geçmişi</span><span class="scode">tail -n 06 experience.log</span></div>
+<div class="shead"><span class="stitle">02 / OPERASYON GEÇMİŞİ</span><span class="scode">tail -n 06 experience.log</span></div>
 <div class="card tl" id="tl"></div>
 </div>
 
 <div class="pane" id="pane-sk">
-<div class="shead"><span class="stitle">03 / yetenekler</span><span class="scode">nmap --skills</span></div>
+<div class="shead"><span class="stitle">03 / YETENEKLER</span><span class="scode">nmap --skills</span></div>
 <div class="card" id="skb"></div>
 </div>
 
 <div class="pane" id="pane-ct">
-<div class="shead"><span class="stitle">04 / iletişim</span><span class="scode">cat contact.txt</span></div>
+<div class="shead"><span class="stitle">04 / İLETİŞİM</span><span class="scode">cat contact.txt</span></div>
 <div class="card">
 <div class="cr"><span class="lb">E-POSTA</span><a href="mailto:contact@murti.dev">contact@murti.dev</a></div>
 <div class="cr"><span class="lb">GITHUB</span><a href="https://github.com/muratgundogar" target="_blank" rel="noopener">github.com/muratgundogar</a></div>
@@ -222,7 +241,7 @@ DİL
 </div>
 
 <div class="pane" id="pane-sh">
-<div class="shead"><span class="stitle">05 / etkileşimli terminal</span><span class="scode">bash -i</span></div>
+<div class="shead"><span class="stitle">05 / ETKİLEŞİMLİ TERMİNAL</span><span class="scode">bash -i</span></div>
 <div class="term" id="term"></div>
 <div class="tl-row"><span>root@murti:~$</span><input id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="komut yaz... (help)"></div>
 </div>
@@ -430,7 +449,7 @@ document.addEventListener("keydown",e=>{
 console.log("%c[ murti-shell ]","color:#5ac8fa;font-weight:bold");
 console.log("%cYetkisiz erişim tespit edildi. Buraya bakıyorsan ya meraklısın ya da geliştiricisin.","color:#ff6b81");
 console.log("%cRouter Murti — IT Ops · Cyber Security · Software","color:#7ee7c7;font-size:16px;font-weight:bold");
-console.log("%cgithub.com/routermurti","color:#5ac8fa");
+console.log("%cgithub.com/muratgundogar","color:#5ac8fa");
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
