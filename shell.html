@@ -6,20 +6,16 @@
 <meta name="theme-color" content="#0a0c10">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="Router Murti — BT Operasyonları · Siber Güvenlik · Yazılım · Dental Teknoloji">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org https://translate.google.com">
 <title>root@murti:~$ ./murtiCV.py</title>
+<!-- son güncelleme: 04.02.2025 02:31 — gece gece düzeltmeler bitmedi -->
+<!-- telegram proxy mantığı burada, token'ı parçaladım -->
 <style>
-:root{
- --bg:#0a0c10;--panel:#0e1218;--panel2:#121821;--line:#1c2430;--line2:#28323f;
- --accent:#7ee7c7;--accent2:#5ac8fa;--amber:#ffb454;--rose:#ff6b81;
- --text:#c9d1d9;--muted:#6b7684;--dim:#4a5563;--ok:#7ee7c7
-}
+:root{--bg:#0a0c10;--panel:#0e1218;--panel2:#121821;--line:#1c2430;--line2:#28323f;--accent:#7ee7c7;--accent2:#5ac8fa;--amber:#ffb454;--rose:#ff6b81;--text:#c9d1d9;--muted:#6b7684;--dim:#4a5563;--ok:#7ee7c7}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg);scroll-behavior:smooth}
 body{margin:0;min-height:100vh;color:var(--text);font-family:"SFMono-Regular",Consolas,"Liberation Mono","Courier New",monospace;font-size:14px;line-height:1.55;overflow-x:hidden;
-background:
- radial-gradient(circle at 15% 0%,rgba(126,231,199,.07),transparent 40%),
- radial-gradient(circle at 85% 100%,rgba(90,200,250,.05),transparent 35%),
- var(--bg)}
+background:radial-gradient(circle at 15% 0%,rgba(126,231,199,.07),transparent 40%),radial-gradient(circle at 85% 100%,rgba(90,200,250,.05),transparent 35%),var(--bg)}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.03;background:repeating-linear-gradient(0deg,transparent 0 2px,#fff 2px 3px);mix-blend-mode:overlay;z-index:100}
 #mx{position:fixed;inset:0;z-index:0;opacity:.05;pointer-events:none}
 .shell{position:relative;z-index:1;width:min(1080px,calc(100% - 20px));margin:20px auto 50px}
@@ -32,7 +28,6 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.03;ba
 .path{color:var(--muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .path b{color:#e6edf3;font-weight:600}
 .path i{color:var(--accent);font-style:normal}
-
 .acts{position:relative;flex-shrink:0}
 .lang{display:flex;align-items:center;gap:7px;border:1px solid var(--line2);background:linear-gradient(180deg,#141b24,#0e131a);color:var(--text);padding:8px 13px;border-radius:9px;font:600 11px inherit;cursor:pointer;transition:.2s;letter-spacing:.5px}
 .lang svg{width:13px;height:13px;stroke:var(--accent2);fill:none;stroke-width:1.7;flex-shrink:0}
@@ -44,7 +39,6 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.03;ba
 .goog-te-gadget .goog-te-combo{background:#080b10;color:var(--accent);border:1px solid var(--line2);padding:8px;width:186px;font:12px inherit;border-radius:6px;outline:none}
 .goog-te-banner-frame.skiptranslate{display:none!important}
 body{top:0!important}
-
 .boot{padding:30px 26px;border-bottom:1px solid var(--line);min-height:200px}
 .bgrid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
 .kick{color:var(--dim);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
@@ -57,7 +51,6 @@ body{top:0!important}
 .cmd{color:#e6edf3}
 .cur{display:inline-block;width:8px;height:15px;background:var(--accent);vertical-align:-2px;animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--accent)}
 @keyframes blink{50%{opacity:0}}
-
 .tel{display:grid;grid-template-columns:repeat(2,116px);gap:8px}
 .met{border:1px solid var(--line);background:linear-gradient(180deg,#0f151c,#0a0e14);border-radius:9px;padding:10px 11px;transition:.2s}
 .met small{display:block;color:var(--dim);font-size:9px;letter-spacing:1.5px;margin-bottom:3px}
@@ -68,28 +61,16 @@ body{top:0!important}
 .blog span{display:block}
 .blog .ok{color:var(--accent)}
 .blog .cy{color:var(--accent2)}
-
 .hide{display:none!important}
 #profile{opacity:0;transition:opacity .6s}
 #profile.rdy{opacity:1}
-
 .tabs{display:flex;gap:4px;padding:12px 14px;border-bottom:1px solid var(--line);background:#0b0f15;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{
- position:relative;flex:0 0 auto;padding:11px 18px 11px 24px;border:1px solid var(--line);border-radius:9px;
- color:#8b98a5;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
- background:linear-gradient(180deg,#0f151c,#0a0e14);font-family:inherit;cursor:pointer;transition:.22s;white-space:nowrap
-}
+.tab{position:relative;flex:0 0 auto;padding:11px 18px 11px 24px;border:1px solid var(--line);border-radius:9px;color:#8b98a5;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:linear-gradient(180deg,#0f151c,#0a0e14);font-family:inherit;cursor:pointer;transition:.22s;white-space:nowrap}
 .tab::before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:transparent;transition:.2s}
 .tab:hover:not(.on){color:#c9d1d9;border-color:var(--line2);background:linear-gradient(180deg,#141b24,#0e131a)}
-.tab.on{
- color:var(--accent);border-color:rgba(126,231,199,.5);
- background:linear-gradient(180deg,rgba(126,231,199,.14),rgba(126,231,199,.04));
- box-shadow:inset 0 0 0 1px rgba(126,231,199,.15),0 0 20px rgba(126,231,199,.12);
- text-shadow:0 0 12px rgba(126,231,199,.4)
-}
+.tab.on{color:var(--accent);border-color:rgba(126,231,199,.5);background:linear-gradient(180deg,rgba(126,231,199,.14),rgba(126,231,199,.04));box-shadow:inset 0 0 0 1px rgba(126,231,199,.15),0 0 20px rgba(126,231,199,.12);text-shadow:0 0 12px rgba(126,231,199,.4)}
 .tab.on::before{background:var(--accent);box-shadow:0 0 8px var(--accent)}
-
 .panes{padding:24px 26px;background:linear-gradient(180deg,#0a0d12,#080b10);min-height:520px}
 .pane{display:none;animation:fade .35s ease}
 .pane.on{display:block}
@@ -101,7 +82,6 @@ body{top:0!important}
 .json{color:var(--accent2);font-size:11.5px;white-space:pre-wrap;line-height:1.8;word-break:break-word}
 .key{color:#7a8694}
 .val{color:var(--accent);font-weight:500}
-
 .tl{display:grid;gap:0}
 .exp{display:grid;grid-template-columns:40px 175px 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid #161d26;transition:.2s}
 .exp:last-child{border-bottom:0}
@@ -109,21 +89,12 @@ body{top:0!important}
 .num{color:var(--dim);font-size:10px;padding-top:3px;letter-spacing:1px}
 .co{color:#e6edf3;font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
 .dc{color:#8b98a5;font-size:10.5px;line-height:1.65}
-
-.sk{margin-bottom:14px}
-.sk:last-child{margin-bottom:0}
-.skt{display:flex;justify-content:space-between;font-size:10.5px;color:#9aa7ad;margin-bottom:6px;letter-spacing:.8px;text-transform:uppercase}
-.skt b{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
-.bar{height:4px;background:#0d1219;border-radius:3px;overflow:hidden;border:1px solid #161d26}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,#2d8f6f,#7ee7c7);width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px rgba(126,231,199,.5)}
-
 .skgroup{margin-bottom:22px}
 .skgroup:last-child{margin-bottom:0}
 .skgt{font-size:10px;letter-spacing:2.5px;color:var(--accent2);text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px dashed #1a232e;font-weight:700}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{border:1px solid var(--line);background:linear-gradient(180deg,#0f151c,#0a0e14);border-radius:6px;color:#9aa7ad;padding:6px 10px;font-size:10px;letter-spacing:.4px;transition:.2s;cursor:default}
 .chip:hover{border-color:rgba(126,231,199,.35);color:var(--accent);background:linear-gradient(180deg,rgba(126,231,199,.08),rgba(126,231,199,.02))}
-
 .cr{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #161d26;font-size:12px;flex-wrap:wrap}
 .cr:last-child{border-bottom:0}
 .cr a{color:var(--accent2);text-decoration:none;word-break:break-all;transition:.2s}
@@ -143,7 +114,6 @@ body{top:0!important}
 .msgresult{font-size:10.5px;margin-top:8px;min-height:16px}
 .msgresult.ok{color:var(--accent)}
 .msgresult.err{color:var(--rose)}
-
 .term{border:1px solid var(--line);background:#060809;border-radius:11px;padding:15px;font-size:12px;min-height:230px;max-height:320px;overflow-y:auto;font-family:inherit;line-height:1.7}
 .term::-webkit-scrollbar{width:6px}
 .term::-webkit-scrollbar-thumb{background:#1c2430;border-radius:3px}
@@ -155,14 +125,13 @@ body{top:0!important}
 .tl-row{display:flex;align-items:center;margin-top:8px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:#060809}
 .tl-row span{color:var(--accent);font-weight:700;font-size:12px;flex-shrink:0}
 .tl-row input{background:transparent;border:0;outline:0;color:#e6edf3;font:inherit;flex:1;padding:0;margin-left:8px;font-size:12px;min-width:0}
-
 .sbar{border-top:1px solid var(--line);padding:11px 16px;display:flex;justify-content:space-between;color:var(--dim);font-size:9.5px;flex-wrap:wrap;gap:8px;background:#0a0e13;letter-spacing:.4px}
 .ok{color:var(--ok)}
 .clk{color:var(--accent2);font-weight:600;font-variant-numeric:tabular-nums}
 .warn{color:var(--rose)}
 .up{color:var(--dim)}
 .up b{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
-
+.eski-buton{display:none}
 @media(max-width:720px){
 .shell{width:calc(100% - 12px);margin:8px auto 28px}
 .tbar{height:48px;padding:0 12px}
@@ -238,7 +207,7 @@ DİL
 </div>
 
 <div class="pane" id="pane-exp">
-<div class="shead"><span class="stitle">02 / OPERASYON GEÇMİŞİ</span><span class="scode">tail -n 06 experience.log</span></div>
+<div class="shead"><span class="stitle">02 / OPERASYON GEÇMİŞİ</span><span class="scode">tail -n 07 experience.log</span></div>
 <div class="card tl" id="tl"></div>
 </div>
 
@@ -284,6 +253,25 @@ DİL
 
 <script>
 "use strict";
+/* telegram token parçaları — kolay okunmasın diye böldüm */
+const _p1="ODY4NzQ4";
+const _p2="NTY3MjpB";
+const _p3="QUg1TVVX";
+const _p4="Y0kzeVhw";
+const _p5="aFRnYkk2";
+const _p6="RzBWS1pq";
+const _p7="Y3p6dDdi";
+const _p8="RG5lRQ==";
+const _cid="ODg2MTY2NjkxNQ==";
+const _api="aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==";
+const _ep="L3NlbmRNZXNzYWdl";
+const _dec=s=>atob(s);
+const _getToken=()=>_dec(_p1)+_dec(_p2)+_dec(_p3)+_dec(_p4)+_dec(_p5)+_dec(_p6)+_dec(_p7)+_dec(_p8);
+
+/* eski kod: tek parça token — revize ettim, parçaladım */
+// const _TB="ODY4NzQ4NTY3MjpBQUg1TVVXY0kzeVhwaFRnYkk2RzBWS1pqY3p6dDdiRG5lRQ==";
+
+/* profil verisi — türkçe karakterler \u ile kaçışlı */
 const DATA={
  identity:{name:"Router Murti",role:"IT Operations · Cyber Security · Software",location:"Türkiye",status:"ONLINE"},
  experience:[
@@ -319,12 +307,6 @@ const DATA={
  story:"Teknolojiye olan ilgim çok erken yaşlarda başladı; İstila İnternet Kafe'de sistem yönetimi, format operasyonları ve shell/script yazımıyla temellerimi attım. Aynı dönemde oyun hile ve script geliştirme, siber güvenlik ve zafiyet araştırmacılığı alanlarında saha deneyimi kazandım; bu süreçteki geçmiş faaliyetlerin yasal bedelini ödeyerek profesyonel olgunluğa ulaştım.\n\nKariyerim boyunca IT operasyonları, yazılım geliştirme ve siber güvenlik disiplinlerini bir arada yürüttüm. Büyük platformlarda (ByNoGame, GameSatış) operasyon şefliği yaparak ekip koordinasyonu, kriz yönetimi ve canlı destek süreçlerini yönettim. Şırnak'ta 11 ay askerlik yaptığım dönemde bile programlamaya devam ederek disiplinimi korudum.\n\nSağlık sektöründe IT ve Bilgi İşlem Elemanı olarak başladığım görevde kısa sürede Bilgi İşlem Bölüm Şefliği'ne, ardından Müdür Yardımcılığı ve Müdürlük pozisyonlarına yükseldim. Büyük entegre şehir hastanelerinde IT ve Bilgi İşlem Uzmanı olarak güvenlik sistemleri, sunucu kurulumları, HBYS altyapısı, ağ izleme ve saldırı tespit süreçlerini yönettim.\n\nBugün dental laboratuvarında üretim süreçlerinin kritik noktalarında joker eleman olarak görev alıyorum: kuryelik, alçı döküm ve tesfiye, dijital diş tasarımı, iş kayıtları, cari hesaplar, ön muhasebe ve ofis lojistiği.\n\nYönetim yaklaşımım gereksiz mikro yönetimden uzak; sorumluluk veren, doğrudan iletişim kuran ve sahada sonuca odaklanan bir model üzerine kuruludur.\n\nGeçmişte bilişim suçu kapsamında aldığım hüküm sonrasında yasal çerçeveye tam uyum sağlayarak; talep edildiği takdirde kolluk kuvvetleri ve adli mercilerle iş birliği yapıyor, teknik bilgi desteği sağlıyor ve yürütülen operasyonel faaliyetlerde aktif rol alıyorum."
 };
 
-const _TB="ODY4NzQ4NTY3MjpBQUg1TVVXY0kzeVhwaFRnYkk2RzBWS1pqY3p6dDdiRG5lRQ==";
-const _TC="ODg2MTY2NjkxNQ==";
-const _TG="aHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==";
-const _TS="L3NlbmRNZXNzYWdl";
-const _decode=s=>atob(s);
-
 const $=id=>document.getElementById(id);
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const pad=n=>String(n).padStart(2,"0");
@@ -341,12 +323,12 @@ async function sendToTelegram(text){
  if(!text||!text.trim()) return {ok:false,error:"mesaj boş olamaz"};
  if(text.length>500) return {ok:false,error:"mesaj 500 karakteri geçemez"};
  try{
-  const url=_decode(_TG)+_decode(_TB)+_decode(_TS);
+  const url=_dec(_api)+_getToken()+_dec(_ep);
   const res=await fetch(url,{
    method:"POST",
    headers:{"Content-Type":"application/json"},
    body:JSON.stringify({
-    chat_id:_decode(_TC),
+    chat_id:_dec(_cid),
     text:"[murtiCV] yeni mesaj:\n\n"+text,
     parse_mode:"HTML"
    })
@@ -521,12 +503,12 @@ function initMsgBox(){
    setTimeout(()=>{box.classList.remove("on");res.textContent="";},2500);
   }else{
    res.className="msgresult err";
-   res.textContent="✗ hata: "+r.error;
+   res.textContent="✗ hata: anti "+r.error;
   }
  });
 }
 
-function toggleTranslate(){
+function toggleTranslateFrame(){
  const b=$("tr");
  b.style.display=b.style.display==="block"?"none":"block";
 }
@@ -548,11 +530,23 @@ document.addEventListener("keydown",e=>{
  if(e.key==="F9"){e.preventDefault();toggleTranslate();}
 });
 
-(function antiFrame(){
+(function(){
  try{ if(window.top!==window.self) window.top.location=window.self.location; }catch(e){}
 })();
 
+/* devtools kontrolü — biraz basit ama yeter */
+(function devGuard(){
+ const t0=performance.now();
+ debugger;
+ const t1=performance.now();
+ if(t1-t0>100){
+  console.log("%c⚠ devtools açık — bizi izliyor olabilirsin","color:#ff6b81;font-weight:bold");
+ }
+})();
+
 (async function(){
+ // konsolu temizle — giriş izi bırakma
+ try{console.clear();}catch(e){}
  startClock();
  startMatrix();
  initTabs();
@@ -571,10 +565,16 @@ document.addEventListener("keydown",e=>{
  }
 })();
 
+// debug kalıntısı — silmeyi unuttum, kalsın
+// console.log("test render ok");
+
 console.log("%c[ murti-shell v6.0.0 ]","color:#5ac8fa;font-weight:bold");
 console.log("%cYetkisiz erişim tespit edildi. Buraya bakıyorsan ya meraklısın ya da geliştiricisin.","color:#ff6b81");
 console.log("%cRouter Murti — IT Ops · Cyber Security · Software","color:#7ee7c7;font-size:16px;font-weight:bold");
 console.log("%cgithub.com/routermurti","color:#5ac8fa");
+
+/* stackoverflow'dan aldığım rate limit mantığı — ufak modifiye */
+// kaynak: https://stackoverflow.com/a/xxxxx
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
