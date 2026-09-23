@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org https://translate.google.com">
 <title>root@murti:~$ ./murtiCV.py</title>
 <!-- son güncelleme: 04.02.2025 02:31 — gece gece düzeltmeler bitmedi -->
+<!-- telegram proxy mantığı burada, token'ı parçaladım -->
 <style>
 :root{--bg:#0a0c10;--panel:#0e1218;--panel2:#121821;--line:#1c2430;--line2:#28323f;--accent:#7ee7c7;--accent2:#5ac8fa;--amber:#ffb454;--rose:#ff6b81;--text:#c9d1d9;--muted:#6b7684;--dim:#4a5563;--ok:#7ee7c7}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -42,9 +43,8 @@ body{top:0!important}
 .bgrid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
 .kick{color:var(--dim);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
 .htitle{font-size:clamp(30px,6.5vw,54px);line-height:1;margin:8px 0 4px;color:#f0f6fc;font-weight:700;letter-spacing:-2px}
-.htitle .accent{color:var(--accent);text-shadow:0 0 30px rgba(126,231,199,.35);display:inline-flex;align-items:center;gap:10px}
-.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent),0 0 24px rgba(126,231,199,.5);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.9)}}
+.htitle .accent{color:var(--accent);text-shadow:0 0 30px rgba(126,231,199,.35);display:inline-flex;align-items:baseline;gap:6px}
+.htitle .accent .cur{flex-shrink:0;vertical-align:baseline}
 .sub{color:#a4b0b6;max-width:760px;font-size:12.5px;letter-spacing:.3px;margin-top:10px;line-height:1.7}
 .sub .sep{color:var(--dim);margin:0 6px}
 .sub .tag{color:var(--accent2)}
@@ -61,7 +61,7 @@ body{top:0!important}
 .met strong{display:block;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.5px}
 .met:nth-child(2) strong{color:var(--accent2)}
 .met:nth-child(4) strong{color:var(--amber)}
-.blog{margin-top:18px;color:#8b98a5;font-size:10.5px;min-height:78px;line-height:1.9;letter-spacing:.2px}
+.blog{margin-top:18px;color:#7a8694;font-size:10.5px;min-height:78px;line-height:1.9;letter-spacing:.2px}
 .blog span{display:block;color:#8b98a5}
 .blog b{font-weight:600;letter-spacing:.5px}
 .blog .ok{color:var(--accent)}
@@ -178,7 +178,7 @@ DİL
 <div class="bgrid">
 <div>
 <div class="kick">kişisel sistemler / online cv</div>
-<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ <span class="status-dot"></span></span></h1>
+<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ <span class="cur"></span></span></h1>
 <div class="sub">Klasik özgeçmiş bana göre değil. Ben işi <span class="tag">mutfağında</span> öğrendim — modem sesiyle büyüdüm, sistem kurcaladım, script yazdım. Bugün aynı merakla <span class="tag">BT operasyonları</span>, <span class="tag2">siber güvenlik</span>, <span class="tag">yazılım</span> ve <span class="tag2">dental teknoloji</span> arasında mekik dokuyorum. Yani hem kablo çekerim, hem kod yazarım, hem de dijital diş tasarlarım.</div>
 <div class="pline"><span class="pr">root@<i>murti</i>:~$</span> <span id="tcmd" class="cmd"></span><span id="ccur" class="cur"></span></div>
 </div>
@@ -195,12 +195,12 @@ DİL
 </section>
 
 <div id="profile" class="hide">
-<nav class="tabs">
-<button class="tab on" data-tab="id">KİMLİK</button>
-<button class="tab" data-tab="exp">DENEYİM</button>
-<button class="tab" data-tab="sk">YETENEKLER</button>
-<button class="tab" data-tab="ct">İLETİŞİM</button>
-<button class="tab" data-tab="sh">TERMİNAL</button>
+<nav class="tabs" role="tablist">
+<button class="tab on" data-tab="id" role="tab" aria-selected="true">KİMLİK</button>
+<button class="tab" data-tab="exp" role="tab" aria-selected="false">DENEYİM</button>
+<button class="tab" data-tab="sk" role="tab" aria-selected="false">YETENEKLER</button>
+<button class="tab" data-tab="ct" role="tab" aria-selected="false">İLETİŞİM</button>
+<button class="tab" data-tab="sh" role="tab" aria-selected="false">TERMİNAL</button>
 </nav>
 
 <section class="panes">
@@ -273,9 +273,6 @@ const _ep="L3NlbmRNZXNzYWdl";
 const _dec=s=>atob(s);
 const _getToken=()=>_dec(_p1)+_dec(_p2)+_dec(_p3)+_dec(_p4)+_dec(_p5)+_dec(_p6)+_dec(_p7)+_dec(_p8);
 
-/* eski kod: tek parça token — revize ettim, parçaladım */
-// const _TB="ODY4NzQ4NTY3MjpBQUg1TVVXY0kzeVhwaFRnYkk2RzBWS1pqY3p6dDdiRG5lRQ==";
-
 const DATA={
  identity:{name:"Router Murti",role:"IT Operations · Cyber Security · Software",location:"Türkiye",status:"ONLINE"},
  experience:[
@@ -333,7 +330,7 @@ async function sendToTelegram(text){
    headers:{"Content-Type":"application/json"},
    body:JSON.stringify({
     chat_id:_dec(_cid),
-    text:"[murtiCV] yeni mesaj:\n\n"+text,
+    text:"[murtiCV] yeni mesaj:\n\n"+esc(text),
     parse_mode:"HTML"
    })
   });
@@ -438,7 +435,7 @@ function startMatrix(){
  const fs=14;let cols,ys;
  const size=()=>{c.width=innerWidth;c.height=innerHeight;cols=Math.floor(c.width/fs);ys=Array(cols).fill(1);};
  size();addEventListener("resize",size);
- setInterval(()=>{
+ const tick=()=>{
   x.fillStyle="rgba(10,12,16,0.09)";
   x.fillRect(0,0,c.width,c.height);
   x.fillStyle="#7ee7c7";
@@ -448,7 +445,12 @@ function startMatrix(){
    if(ys[i]*fs>c.height&&Math.random()>0.975) ys[i]=0;
    ys[i]++;
   }
- },72);
+ };
+ let mxTimer=setInterval(tick,72);
+ document.addEventListener("visibilitychange",()=>{
+  if(document.hidden){ clearInterval(mxTimer); }
+  else{ mxTimer=setInterval(tick,72); }
+ });
 }
 
 function initShell(){
@@ -522,9 +524,10 @@ function googleTranslateElementInit(){
 
 function initTabs(){
  document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
-  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
+  document.querySelectorAll(".tab").forEach(x=>{x.classList.remove("on");x.setAttribute("aria-selected","false");});
   document.querySelectorAll(".pane").forEach(x=>x.classList.remove("on"));
   t.classList.add("on");
+  t.setAttribute("aria-selected","true");
   const p=$("pane-"+t.dataset.tab);
   if(p)p.classList.add("on");
  }));
@@ -538,15 +541,7 @@ document.addEventListener("keydown",e=>{
  try{ if(window.top!==window.self) window.top.location=window.self.location; }catch(e){}
 })();
 
-/* devtools kontrolü — biraz basit ama yeter */
-(function devGuard(){
- const t0=performance.now();
- debugger;
- const t1=performance.now();
- if(t1-t0>100){
-  console.log("%c⚠ devtools açık — bizi izliyor olabilirsin","color:#ff6b81;font-weight:bold");
- }
-})();
+
 
 (async function(){
  try{console.clear();}catch(e){}
@@ -568,17 +563,11 @@ document.addEventListener("keydown",e=>{
  }
 })();
 
-// debug kalıntısı — silmeyi unuttum, kalsın
-// console.log("test render ok");
-
 console.log("%c[ murti-shell v6.0.0 ]","color:#5ac8fa;font-weight:bold");
 console.log("%cYetkisiz erişim tespit edildi. Buraya bakıyorsan ya meraklısın ya da geliştiricisin.","color:#ff6b81");
 console.log("%cRouter Murti — IT Ops · Cyber Security · Software","color:#7ee7c7;font-size:16px;font-weight:bold");
 console.log("%cgithub.com/routermurti","color:#5ac8fa");
-
-/* stackoverflow'dan aldığım rate limit mantığı — ufak modifiye */
-// kaynak: https://stackoverflow.com/a/xxxxx
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://translate.google.com/translate_a/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
