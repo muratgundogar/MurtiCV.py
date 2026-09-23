@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org https://translate.google.com">
 <title>root@murti:~$ ./murtiCV.py</title>
 <!-- son güncelleme: 04.02.2025 02:31 — gece gece düzeltmeler bitmedi -->
-<!-- telegram proxy mantığı burada, token'ı parçaladım -->
 <style>
 :root{--bg:#0a0c10;--panel:#0e1218;--panel2:#121821;--line:#1c2430;--line2:#28323f;--accent:#7ee7c7;--accent2:#5ac8fa;--amber:#ffb454;--rose:#ff6b81;--text:#c9d1d9;--muted:#6b7684;--dim:#4a5563;--ok:#7ee7c7}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -43,8 +42,9 @@ body{top:0!important}
 .bgrid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
 .kick{color:var(--dim);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px}
 .htitle{font-size:clamp(30px,6.5vw,54px);line-height:1;margin:8px 0 4px;color:#f0f6fc;font-weight:700;letter-spacing:-2px}
-.htitle .accent{color:var(--accent);text-shadow:0 0 30px rgba(126,231,199,.35);display:inline-flex;align-items:baseline;gap:6px}
-.htitle .accent .cur{flex-shrink:0;vertical-align:baseline}
+.htitle .accent{color:var(--accent);text-shadow:0 0 30px rgba(126,231,199,.35);display:inline-flex;align-items:center;gap:10px}
+.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent),0 0 24px rgba(126,231,199,.5);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.9)}}
 .sub{color:#a4b0b6;max-width:760px;font-size:12.5px;letter-spacing:.3px;margin-top:10px;line-height:1.7}
 .sub .sep{color:var(--dim);margin:0 6px}
 .sub .tag{color:var(--accent2)}
@@ -61,7 +61,7 @@ body{top:0!important}
 .met strong{display:block;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.5px}
 .met:nth-child(2) strong{color:var(--accent2)}
 .met:nth-child(4) strong{color:var(--amber)}
-.blog{margin-top:18px;color:#7a8694;font-size:10.5px;min-height:78px;line-height:1.9;letter-spacing:.2px}
+.blog{margin-top:18px;color:#8b98a5;font-size:10.5px;min-height:78px;line-height:1.9;letter-spacing:.2px}
 .blog span{display:block;color:#8b98a5}
 .blog b{font-weight:600;letter-spacing:.5px}
 .blog .ok{color:var(--accent)}
@@ -178,7 +178,7 @@ DİL
 <div class="bgrid">
 <div>
 <div class="kick">kişisel sistemler / online cv</div>
-<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ <span class="cur"></span></span></h1>
+<h1 class="htitle"><span id="heroName">ROUTER MURTI</span><br><span class="accent">ÇEVRİMİÇİ <span class="status-dot"></span></span></h1>
 <div class="sub">Klasik özgeçmiş bana göre değil. Ben işi <span class="tag">mutfağında</span> öğrendim — modem sesiyle büyüdüm, sistem kurcaladım, script yazdım. Bugün aynı merakla <span class="tag">BT operasyonları</span>, <span class="tag2">siber güvenlik</span>, <span class="tag">yazılım</span> ve <span class="tag2">dental teknoloji</span> arasında mekik dokuyorum. Yani hem kablo çekerim, hem kod yazarım, hem de dijital diş tasarlarım.</div>
 <div class="pline"><span class="pr">root@<i>murti</i>:~$</span> <span id="tcmd" class="cmd"></span><span id="ccur" class="cur"></span></div>
 </div>
