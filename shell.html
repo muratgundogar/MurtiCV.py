@@ -2,279 +2,107 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d0d0d">
-<title>root@user:~# python3 murtiCV.py</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050608">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Murat Gündoğar — IT Operations, Cyber Security, Software & Dental Technology.">
+<title>root@murti:~$ ./murtiCV.py</title>
 <style>
-* { box-sizing: border-box; }
-html, body { min-height: 100%; }
-body {
-    background:#0d0d0d;
-    color:#00ff00;
-    font-family:"Courier New",monospace;
-    padding:20px;
-    margin:0;
-    line-height:1.6;
-    user-select:none;
-    -webkit-user-select:none;
-}
-.terminal-window {
-    width:100%;
-    max-width:800px;
-    margin:0 auto;
-    border:1px solid #333;
-    background:#121212;
-    padding:20px;
-    box-shadow:0 0 20px rgba(0,255,0,.20);
-    border-radius:5px;
-}
-.header {
-    border-bottom:1px solid #333;
-    padding-bottom:10px;
-    margin-bottom:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-}
-.dots span {
-    display:inline-block;
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    margin-right:5px;
-}
-.dot-red { background:#ff5f56; }
-.dot-yellow { background:#ffbd2e; }
-.dot-green { background:#27c93f; }
-
-.translate-wrapper { position:relative; display:inline-block; }
-#google_translate_element {
-    display:none;
-    position:absolute;
-    right:0;
-    top:calc(100% + 8px);
-    z-index:50;
-    background:#171717;
-    border:1px solid #00ff00;
-    padding:8px;
-    min-width:180px;
-}
-.custom-translate-btn {
-    background:#00ff00;
-    color:#050505;
-    border:1px solid #00ff00;
-    padding:10px 14px;
-    cursor:pointer;
-    font-family:"Courier New",monospace;
-    font-weight:bold;
-    font-size:14px;
-    transition:.2s;
-}
-.custom-translate-btn:hover {
-    background:#050505;
-    color:#00ff00;
-}
-.custom-translate-btn:disabled {
-    opacity:.35;
-    cursor:not-allowed;
-}
-.prompt { color:#00ff00; font-weight:bold; }
-.command { color:#fff; }
-.output {
-    color:#a9ffaf;
-    margin:8px 0 25px;
-    white-space:pre-line;
-}
-.json-box {
-    background:#050505;
-    border-left:3px solid #00ff00;
-    padding:15px;
-    color:#00bcff;
-    font-size:14px;
-    overflow-x:auto;
-    margin:8px 0 25px;
-    white-space:pre;
-}
-.terminal-line {
-    margin:10px 0 4px;
-    min-height:1.6em;
-}
-.status-ok { color:#a9ffaf; }
-.cursor {
-    animation:blink 1s steps(1) infinite;
-}
-@keyframes blink { 50% { opacity:0; } }
-footer {
-    text-align:center;
-    margin-top:40px;
-    color:#555;
-    font-size:12px;
-}
-.boot-line {
-    color:#777;
-    margin:3px 0;
-}
-body.translated { top:0 !important; }
-.goog-te-banner-frame.skiptranslate { display:none !important; }
-.goog-te-gadget { font-size:0 !important; }
-.goog-te-gadget .goog-te-combo {
-    font-family:"Courier New",monospace;
-    font-size:13px;
-    background:#050505;
-    color:#00ff00;
-    border:1px solid #00ff00;
-    padding:6px;
-    width:100%;
-}
-@media (max-width:600px) {
-    body { padding:10px; }
-    .terminal-window { padding:14px; }
-    .header { align-items:flex-start; }
-    .custom-translate-btn { font-size:12px; padding:8px 10px; }
-    .json-box { font-size:12px; padding:10px; }
-    footer { margin-top:25px; }
-}
+:root{--bg:#050608;--panel:#0a0d10;--line:#1b252c;--green:#35ff8a;--cyan:#47d7ff;--text:#d9e3e8;--muted:#68767e;--shadow:0 0 50px rgba(0,255,130,.06)}
+*{box-sizing:border-box} html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,rgba(0,255,130,.08),transparent 35%),radial-gradient(circle at 90% 80%,rgba(0,180,255,.035),transparent 28%),var(--bg);color:var(--text);font-family:"SFMono-Regular",Consolas,"Liberation Mono","Courier New",monospace;font-size:14px;line-height:1.55;overflow-x:hidden;user-select:none;-webkit-user-select:none}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.028;background:repeating-linear-gradient(0deg,transparent 0 2px,#fff 2px 3px);mix-blend-mode:overlay;z-index:100}
+.shell{width:min(1080px,calc(100% - 24px));margin:24px auto 50px}
+.window{border:1px solid #243038;background:rgba(8,11,14,.94);border-radius:14px;box-shadow:var(--shadow),0 20px 80px rgba(0,0,0,.45);overflow:hidden;backdrop-filter:blur(10px)}
+.titlebar{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--line);background:#090c0f}
+.leftbar{display:flex;align-items:center;gap:10px}.dots{display:flex;gap:7px}.dot{width:11px;height:11px;border-radius:50%}.r{background:#ff5f56}.y{background:#ffbd2e}.g{background:#27c93f}
+.path{color:#738088;font-size:12px;margin-left:4px}.path b{color:#cbd5da;font-weight:500}
+.actions{display:flex;align-items:center;gap:8px}.actions-wrap{position:relative}
+.lang{border:1px solid #244b39;background:#0a1510;color:var(--green);padding:7px 10px;border-radius:7px;font:600 11px inherit;cursor:pointer;transition:.2s}
+.lang:hover:not(:disabled){background:#10251a;border-color:var(--green);box-shadow:0 0 18px rgba(53,255,138,.1)}.lang:disabled{opacity:.3;cursor:not-allowed}
+.translate{display:none;position:absolute;right:0;top:42px;z-index:20;background:#0b1013;border:1px solid #29443a;padding:9px;border-radius:8px;min-width:190px;box-shadow:0 14px 30px #000}
+.goog-te-gadget{font-size:0!important}.goog-te-gadget .goog-te-combo{background:#050708;color:var(--green);border:1px solid #355448;padding:7px;width:170px;font:12px inherit}
+.goog-te-banner-frame.skiptranslate{display:none!important}body{top:0!important}
+.boot{padding:28px 26px;border-bottom:1px solid var(--line);min-height:210px}.boot-grid{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end}
+.kicker{color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase}.hero-title{font-size:clamp(28px,6vw,52px);line-height:1.05;margin:8px 0;color:#f0f5f7;font-weight:700;letter-spacing:-2px}.hero-title .green{color:var(--green)}
+.subtitle{color:#829099;max-width:720px;font-size:12px}.promptline{margin-top:22px;color:#a4b0b6;font-size:13px}.prompt{color:var(--green);font-weight:700}.cmd{color:#f2f5f6}
+.cursor{display:inline-block;width:7px;height:15px;background:var(--green);vertical-align:-2px;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.telemetry{display:grid;grid-template-columns:repeat(2,110px);gap:8px}.metric{border:1px solid var(--line);background:#080b0d;border-radius:8px;padding:9px}.metric small{display:block;color:#56646c;font-size:9px;letter-spacing:1px}.metric strong{display:block;color:var(--green);font-size:12px;margin-top:3px}
+.bootlog{margin-top:16px;color:#65747b;font-size:10px;min-height:54px}.bootlog span{display:block}
+.dashboard{display:grid;grid-template-columns:250px 1fr;min-height:560px}.sidebar{border-right:1px solid var(--line);background:#080b0d;padding:20px}.side-title{font-size:9px;letter-spacing:2px;color:#4f5c63;margin-bottom:13px}
+.navitem{display:flex;gap:9px;align-items:center;padding:9px 10px;border:1px solid transparent;border-radius:7px;color:#819099;font-size:11px;margin:3px 0}.navitem.active{border-color:#1c3a2b;background:#0b1510;color:var(--green)}
+.dotlive{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}.side-block{margin-top:26px;padding-top:17px;border-top:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1px solid #1e2c32;background:#0b0f12;border-radius:5px;color:#718088;padding:5px 7px;font-size:9px}
+.main{padding:22px 24px;background:linear-gradient(180deg,#0a0d10,#080b0d)}.section{margin-bottom:28px}.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.section-title{font-size:10px;letter-spacing:2px;color:#68777f;text-transform:uppercase}.section-code{font-size:9px;color:#39464d}.card{border:1px solid var(--line);background:#090c0f;border-radius:9px;padding:15px}
+.summary{color:#9eabb1;font-size:12px;line-height:1.85}.json{color:#72c8e5;font-size:11px;white-space:pre-wrap}.key{color:#7c8790}.value{color:#a6ffb9}
+.timeline{display:grid;gap:7px}.exp{display:grid;grid-template-columns:36px 155px 1fr;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid #151e23}.exp:last-child{border-bottom:0}
+.num{color:#3c555d;font-size:10px;padding-top:2px}.company{color:#dbe3e6;font-size:10px;font-weight:700;letter-spacing:.7px}.desc{color:#75838a;font-size:10px}
+.statusbar{border-top:1px solid var(--line);padding:10px 14px;display:flex;justify-content:space-between;color:#4e5b62;font-size:9px}.ok{color:var(--green)}
+.hidden{display:none!important}#profile{opacity:0;transition:opacity .5s}#profile.ready{opacity:1}
+@media(max-width:720px){.shell{width:calc(100% - 12px);margin:8px auto 28px}.titlebar{height:45px;padding:0 10px}.path{max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.boot{padding:22px 16px}.boot-grid{grid-template-columns:1fr}.telemetry{grid-template-columns:repeat(2,1fr)}.dashboard{display:block}.sidebar{border-right:0;border-bottom:1px solid var(--line);padding:14px}.sidebar .side-nav{display:flex;overflow-x:auto;gap:5px}.navitem{white-space:nowrap}.side-block{display:none}.main{padding:18px 15px}.exp{grid-template-columns:28px 1fr}.exp .desc{grid-column:2}.hero-title{letter-spacing:-1.5px}.subtitle{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 </style>
-
-<script>
-document.addEventListener("contextmenu", function(e) { e.preventDefault(); });
-document.addEventListener("keydown", function(e) {
-    if (e.key === "F12") e.preventDefault();
-    if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) e.preventDefault();
-    if (e.ctrlKey && e.key.toUpperCase() === "U") e.preventDefault();
-});
-</script>
 </head>
-
 <body>
-<div class="terminal-window">
-    <div class="header">
-        <div class="dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-        </div>
-
-        <div class="translate-wrapper">
-            <button id="translateBtn" class="custom-translate-btn" onclick="openTranslate()" disabled>
-                Select_Language() 🌐
-            </button>
-            <div id="google_translate_element"></div>
-        </div>
-    </div>
-
-    <div id="terminal-content">
-        <div id="boot"></div>
-        <div id="profile"></div>
-    </div>
+<main class="shell"><div class="window">
+<header class="titlebar">
+<div class="leftbar"><div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div><div class="path"><b>root@murti</b>:~$ ./murtiCV.py</div></div>
+<div class="actions-wrap"><button id="langBtn" class="lang" disabled onclick="toggleTranslate()">LANG_SELECT [F9]</button><div id="translate" class="translate"><div id="google_translate_element"></div></div></div>
+</header>
+<section class="content">
+<div class="boot"><div class="boot-grid"><div>
+<div class="kicker">personal systems / profile node</div>
+<h1 class="hero-title"><span id="heroName">MURTICV</span><br><span class="green">ONLINE<span class="cursor"></span></span></h1>
+<div class="subtitle">IT Operations · Cyber Security Research · Software · Dental Technology</div>
+<div class="promptline"><span class="prompt">root@murti:~$</span> <span id="typedCmd" class="cmd"></span><span id="cmdCursor" class="cursor"></span></div>
 </div>
+<div class="telemetry"><div class="metric"><small>NODE</small><strong>TR-ESK</strong></div><div class="metric"><small>STATUS</small><strong>ONLINE</strong></div><div class="metric"><small>MODE</small><strong>OPS / SEC</strong></div><div class="metric"><small>BUILD</small><strong>v3.0.0</strong></div></div>
+</div><div id="bootlog" class="bootlog"></div></div>
 
-<footer>System Terminal v2.5.0 // Secured & Encoded</footer>
+<div id="profile" class="dashboard hidden">
+<aside class="sidebar"><div class="side-title">SYSTEM MODULES</div><div class="side-nav"><div class="navitem active"><span class="dotlive"></span> identity</div><div class="navitem"><span>›</span> experience</div><div class="navitem"><span>›</span> capabilities</div></div>
+<div class="side-block"><div class="side-title">STACK</div><div id="chips" class="chips"></div></div>
+<div class="side-block"><div class="side-title">ACCESS</div><div style="font-size:10px;color:#66757d">PUBLIC PROFILE<br><span class="ok">● VERIFIED NODE</span></div></div></aside>
+<section class="main">
+<div class="section"><div class="section-head"><span class="section-title">01 / identity</span><span class="section-code">cat profile.json</span></div><div class="card"><div id="summaryJson" class="json"></div></div></div>
+<div class="section"><div class="section-head"><span class="section-title">02 / operational history</span><span class="section-code">tail -n 06 experience.log</span></div><div class="card timeline" id="timeline"></div></div>
+<div class="section"><div class="section-head"><span class="section-title">03 / field profile</span><span class="section-code">whoami --extended</span></div><div class="card summary" id="story"></div></div>
+</section></div>
+</section>
+<footer class="statusbar"><span>murtiCV.py // github pages</span><span><span class="ok">●</span> SYSTEM READY</span></footer>
+</div></main>
 
 <script>
-const encryptedData = "CjxkaXYgY2xhc3M9InRlcm1pbmFsLWxpbmUiPjxzcGFuIGNsYXNzPSJwcm9tcHQiPnJvb3RAdXNlcjp+Izwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNvbW1hbmQiPnB5dGhvbjMgbXVydGlDVi5weTwvc3Bhbj48L2Rpdj4KPGRpdiBjbGFzcz0ib3V0cHV0Ij4KICA8ZGl2PltTWVNURU0gSU5GT10gQ3VzdG9tIFNoZWxsIExvYWRlZCBTdWNjZXNzZnVsbHk8L2Rpdj4KICA8ZGl2PltTVEFUVVNdIEFDVElWRTwvZGl2PgogIDxkaXY+W1NFQ1VSSVRZXSBCYXNlNjQgZW5jb2RlZCBwcm9maWxlIGxvYWRlZDwvZGl2PgogIDxkaXY+W0xPQ0FUSU9OXSBUw7xya2l5ZTwvZGl2Pgo8L2Rpdj4KCjxkaXYgY2xhc3M9InRlcm1pbmFsLWxpbmUiPjxzcGFuIGNsYXNzPSJwcm9tcHQiPnJvb3RAdXNlcjp+Izwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNvbW1hbmQiPmNhdCBwcm9mZXNzaW9uYWxfc3VtbWFyeS5qc29uPC9zcGFuPjwvZGl2Pgo8ZGl2IGNsYXNzPSJqc29uLWJveCI+ewogICJuYW1lIjogIk11cmF0IEfDvG5kb8SfYXIiLAogICJjb3JlX3RlY2giOiAiSVQgJiBDeWJlciBTZWN1cml0eSIsCiAgImRldmVsb3BtZW50IjogIlNvZnR3YXJlICYgQXBwIERldmVsb3BtZW50IiwKICAibWVkaWNhbF9jcmFmdCI6ICJEZW50YWwgTGFib3JhdG9yeSBPcGVyYXRpb25zIiwKICAibWFuYWdlbWVudF9zdHlsZSI6ICJBZ2lsZSwgVGVhbS1PcmllbnRlZCwgTWljcm8tTWFuYWdlbWVudCBGcmVlIiwKICAic3BlY2lhbF9za2lsbHMiOiBbCiAgICAiT3BlcmFzeW9uIFnDtm5ldGltaSIsCiAgICAiSVQgQWx0eWFwxLEiLAogICAgIlNpYmVyIEfDvHZlbmxpayBBcmHFn3TEsXJtYWxhcsSxIiwKICAgICJEaWppdGFsIERpxZ8gVGFzYXLEsW3EsSIsCiAgICAiTW90b3Npa2xldCBNZWthbmnEn2kiLAogICAgIsSwbnNhbiBBbmFsaXppIgogIF0KfTwvZGl2PgoKPGRpdiBjbGFzcz0idGVybWluYWwtbGluZSI+PHNwYW4gY2xhc3M9InByb21wdCI+cm9vdEB1c2VyOn4jPC9zcGFuPiA8c3BhbiBjbGFzcz0iY29tbWFuZCI+Y2F0IGRldGFpbGVkX3N0b3J5LnR4dDwvc3Bhbj48L2Rpdj4KPGRpdiBjbGFzcz0ib3V0cHV0Ij4KVGVrbm9sb2ppeWUgb2xhbiBtZXJha8SxIGVya2VuIHlhxZ9sYXJkYSBiYcWfbGF5YW47IGludGVybmV0IGthZmVsZXJkZSBzaXN0ZW0gecO2bmV0aW1pLApmb3JtYXQgb3BlcmFzeW9ubGFyxLEsIHNjcmlwdCB2ZSB5YXrEsWzEsW0gZ2VsacWfdGlybWUgaWxlIGtlbmRpbmkgeWV0acWfdGlyZW4gYmlyIHRla25vbG9qaQptZXJha2zEsXPEsSBvbGFyYWsgYmHFn2xheWFuIHlvbGN1bHVrLCB6YW1hbiBpw6dpbmRlIElUIG9wZXJhc3lvbmxhcsSxLCBzaWJlciBnw7x2ZW5saWssCnlhesSxbMSxbSB2ZSBzYWhhIG9wZXJhc3lvbmxhcsSxbsSxbiBrZXNpxZ90acSfaSDDp29rIHnDtm5sw7wgYmlyIGthcml5ZXJlIGTDtm7DvMWfdMO8LgoKQnlOb0dhbWUgdmUgR2FtZVNhdMSxxZ8gZ2liaSBwbGF0Zm9ybWxhcmRhIG9wZXJhc3lvbiBzw7xyZcOnbGVyaSB2ZSBJVCBrb29yZGluYXN5b251OwrDtnplbCBoYXN0YW5lIHZlIGLDvHnDvGsgZW50ZWdyZSDFn2VoaXIgaGFzdGFuZWxlcmluZGUgQmlsZ2kgxLDFn2xlbSwgSEJZUyB2ZSBnw7x2ZW5saWsKeWF6xLFsxLFtbGFyxLEgYWx0eWFwxLFsYXLEsTsgYnVnw7xuIGlzZSBkacWfIGxhYm9yYXR1dmFyxLFuZGEgw7xyZXRpbSwgZGlqaXRhbCB0YXNhcsSxbSwKdGVzZml5ZSwgacWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3RpayBvcGVyYXN5b25sYXLEsW7EsSBiaXIgYXJhZGEgecO8csO8dGVuCiJqb2tlciBlbGVtYW4iIHlha2xhxZ/EsW3EsS4KClnDtm5ldGltIGFubGF5xLHFn8SxOyBnZXJla3NpeiBtaWtybyB5w7ZuZXRpbWRlbiB1emFrLCBla2lwIMO8eWVsZXJpbmUgc29ydW1sdWx1ayBhbGFuxLEKdGFuxLF5YW4sIGtyaXogYW7EsW5kYSBkb8SfcnVkYW4gaWxnaWxpIGJpcmltbGUgw6fDtnrDvG0gw7xyZXRlbiB2ZSBwcmF0aWsgc29udWNhIG9kYWtsYW5hbgpiaXIgw6dhbMSxxZ9tYSBtb2RlbGluZSBkYXlhbsSxci4KClRla25vbG9qaXlpIHlhbG7EsXpjYSB5YXrEsWzEsW0gZWtyYW7EsW5kYSBkZcSfaWwsIHNhaGFkYSBkYSBrdWxsYW5tYXnEsSBzZXZlbjsgdGVrbmlrCnByb2JsZW1sZXJpIGFuYWxpeiBlZGVuLCBnZXJla3RpxJ9pbmRlIHRhbWlyL3RhZGlsYXQgdmUgbW90b3Npa2xldCBtZWthbmnEn2kgZ2liaQpwcmF0aWsgYWxhbmxhcmRhIGRhIMOnw7Z6w7xtIMO8cmV0ZW4gaGlicml0IGJpciBvcGVyYXN5b24geWFrbGHFn8SxbcSxLgo8L2Rpdj4KCjxkaXYgY2xhc3M9InRlcm1pbmFsLWxpbmUiPjxzcGFuIGNsYXNzPSJwcm9tcHQiPnJvb3RAdXNlcjp+Izwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNvbW1hbmQiPmNhdCBleHBlcmllbmNlX2hpc3RvcnkubG9nPC9zcGFuPjwvZGl2Pgo8ZGl2IGNsYXNzPSJvdXRwdXQiPgrilrggxLBudGVybmV0IEthZmVsZXJpIOKAlCBTaXN0ZW0gecO2bmV0aW1pLCBmb3JtYXQgb3BlcmFzeW9ubGFyxLEsIHNjcmlwdCB2ZSB5YXrEsWzEsW0KICDDp2FsxLHFn21hbGFyxLEuCgrilrggQnlOb0dhbWUg4oCUIE9wZXJhc3lvbiBzw7xyZcOnbGVyaSwga3JpeiB5w7ZuZXRpbWkgdmUgZWtpcCBrb29yZGluYXN5b251LgoK4pa4IEdhbWVTYXTEscWfIOKAlCBPeXVuIHNla3TDtnLDvCBvcGVyYXN5b25sYXLEsSwgdGVrbmlrIGFsdHlhcMSxIHZlIGt1bGxhbsSxY8SxIGRlc3RlawogIHPDvHJlw6dsZXJpbmRlIGtvb3JkaW5hc3lvbi4KCuKWuCDDlnplbCBIYXN0YW5lIOKAlCBCaWxnaSDEsMWfbGVtIGfDtnJldmxlcmluZGVuIGJhxZ9sYXlhcmFrIElUIHPDvHJlw6dsZXJpIHZlIEhCWVMKICBvcGVyYXN5b25sYXLEsW5kYSBzb3J1bWx1bHVrLgoK4pa4IEVudGVncmUgxZ5laGlyIEhhc3RhbmVsZXJpIOKAlCBLcml0aWsgSVQgYWx0eWFwxLFsYXLEsSwgZ8O8dmVubGlrIHlhesSxbMSxbWxhcsSxLAogIEhCWVMgdmUgc2lzdGVtIGVudGVncmFzeW9ubGFyxLEuCgrilrggTWVkaWthbCAvIERlbnRhbCBMYWJvcmF0dXZhciDigJQgw5xyZXRpbSwgZGlqaXRhbCBkacWfIHRhc2FyxLFtxLEsIHRlc2ZpeWUsIGnFnyBrYXnEsXRsYXLEsSwKICBjYXJpIGhlc2FwLCDDtm4gbXVoYXNlYmUgdmUgbG9qaXN0aWsgb3BlcmFzeW9ubGFyxLFuZGEgYWt0aWYgZ8O2cmV2Lgo8L2Rpdj4KCjxkaXYgY2xhc3M9InRlcm1pbmFsLWxpbmUiPjxzcGFuIGNsYXNzPSJwcm9tcHQiPnJvb3RAdXNlcjp+Izwvc3Bhbj4gPHNwYW4gY2xhc3M9ImNvbW1hbmQiPnN5c3RlbSAtLXN0YXR1czwvc3Bhbj48L2Rpdj4KPGRpdiBjbGFzcz0ib3V0cHV0IHN0YXR1cy1vayI+ClsgT0sgXSBJVCAvIE9wZXJhdGlvbnMKWyBPSyBdIEN5YmVyIFNlY3VyaXR5IFJlc2VhcmNoClsgT0sgXSBTb2Z0d2FyZSAmIEF1dG9tYXRpb24KWyBPSyBdIERlbnRhbCBMYWJvcmF0b3J5IE9wZXJhdGlvbnMKWyBPSyBdIEZpZWxkIFByb2JsZW0gU29sdmluZwpbIE9LIF0gQ29udGludW91cyBMZWFybmluZwo8L2Rpdj4KCjxkaXYgY2xhc3M9InRlcm1pbmFsLWxpbmUgZmluYWwtbGluZSI+PHNwYW4gY2xhc3M9InByb21wdCI+cm9vdEB1c2VyOn4jPC9zcGFuPiA8c3BhbiBjbGFzcz0iY29tbWFuZCBjdXJzb3IiPl88L3NwYW4+PC9kaXY+Cg==";
-
-function decodeHtml(base64) {
-    const binary = atob(base64);
-    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
-    return new TextDecoder("utf-8").decode(bytes);
+const encryptedData="eyJpZGVudGl0eSI6IHsibmFtZSI6ICJNdXJhdCBHw7xuZG/En2FyIiwgInJvbGUiOiAiSVQgT3BlcmF0aW9ucyDigKIgQ3liZXIgU2VjdXJpdHkg4oCiIFNvZnR3YXJlIiwgImxvY2F0aW9uIjogIlTDvHJraXllIiwgInN0YXR1cyI6ICJPTkxJTkUifSwgImV4cGVyaWVuY2UiOiBbWyIwMSIsICJJTlRFUk5FVCBDQUZFIiwgIlNpc3RlbSB5w7ZuZXRpbWksIGZvcm1hdCBvcGVyYXN5b25sYXLEsSwgc2NyaXB0IHZlIHlhesSxbMSxbSDDp2FsxLHFn21hbGFyxLEuIl0sIFsiMDIiLCAiQllOT0dBTUUiLCAiT3BlcmFzeW9uIHPDvHJlw6dsZXJpLCBrcml6IHnDtm5ldGltaSB2ZSBla2lwIGtvb3JkaW5hc3lvbnUuIl0sIFsiMDMiLCAiR0FNRVNBVElTIiwgIlRla25payBhbHR5YXDEsSwga3VsbGFuxLFjxLEgZGVzdGVrIG9wZXJhc3lvbmxhcsSxIHZlIGtvb3JkaW5hc3lvbi4iXSwgWyIwNCIsICLDllpFTCBIQVNUQU5FIiwgIkJpbGdpIMSwxZ9sZW0sIEhCWVMgdmUgSVQgc8O8cmXDp2xlcmluZGUgYXJ0YW4gc29ydW1sdWx1ay4iXSwgWyIwNSIsICLFnkVIxLBSIEhBU1RBTkVMRVLEsCIsICJLcml0aWsgSVQgYWx0eWFwxLFsYXLEsSwgZ8O8dmVubGlrIHlhesSxbMSxbWxhcsSxIHZlIHNpc3RlbSBlbnRlZ3Jhc3lvbmxhcsSxLiJdLCBbIjA2IiwgIkRFTlRBTCBMQUJPUkFUVVZBUiIsICLDnHJldGltLCBkaWppdGFsIGRpxZ8gdGFzYXLEsW3EsSwgdGVzZml5ZSwgacWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3Rpay4iXV0sICJza2lsbHMiOiBbIk9QRVJBVElPTlMiLCAiQ1lCRVJTRUNVUklUWSIsICJTT0ZUV0FSRSIsICJIQllTIiwgIkRFTlRBTCBURUNIIiwgIkxPR0lTVElDUyIsICJNT1RPUkNZQ0xFIiwgIlBST0JMRU0gU09MVklORyJdLCAic3RvcnkiOiAiVGVrbm9sb2ppeWUgb2xhbiBtZXJha8SxIGVya2VuIHlhxZ9sYXJkYSBiYcWfbGF5YW4gYmlyIHlvbGN1bHVrOyBzaXN0ZW0gecO2bmV0aW1pLCB5YXrEsWzEsW0sIElUIG9wZXJhc3lvbmxhcsSxLCBzaWJlciBnw7x2ZW5saWsgdmUgc2FoYSBvcGVyYXN5b25sYXLEsW7EsW4ga2VzacWfdGnEn2kgw6dvayB5w7ZubMO8IGJpciBrYXJpeWVyZSBkw7Zuw7zFn3TDvC4gQsO8ecO8ayBwbGF0Zm9ybWxhcmRhIG9wZXJhc3lvbiBzw7xyZcOnbGVyaSB5w7ZuZXR0aSwgc2HEn2zEsWsgc2VrdMO2csO8bmRlIElUIHZlIEhCWVMgYWx0eWFwxLFsYXLEsW5kYSBzb3J1bWx1bHVrIGFsZMSxLiBCdWfDvG4gZGVudGFsIGxhYm9yYXR1dmFyxLFuZGEgw7xyZXRpbSwgZGlqaXRhbCB0YXNhcsSxbSwgdGVzZml5ZSwgacWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3RpayBzw7xyZcOnbGVyaW5kZSBha3RpZiByb2wgw7xzdGxlbml5b3IuIFnDtm5ldGltIHlha2xhxZ/EsW3EsSBnZXJla3NpeiBtaWtybyB5w7ZuZXRpbWRlbiB1emFrOyBzb3J1bWx1bHVrIHZlcmVuLCBkb8SfcnVkYW4gaWxldGnFn2ltIGt1cmFuIHZlIHNhaGFkYSBzb251Y2Egb2Rha2xhbmFuIGJpciDDp2FsxLHFn21hIG1vZGVsaW5lIGRheWFuxLF5b3IuIn0=";
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function decodeProfile(b64){const bin=atob(b64);const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));return JSON.parse(new TextDecoder("utf-8").decode(bytes));}
+async function typeInto(el,text,speed=38){el.textContent="";for(const c of text){el.textContent+=c;await sleep(speed);}}
+async function boot(){
+ const p=decodeProfile(encryptedData);
+ document.getElementById("heroName").textContent=p.identity.name.toUpperCase();
+ await typeInto(document.getElementById("typedCmd"),"python3 murtiCV.py --secure --profile",30);
+ const log=document.getElementById("bootlog");
+ const lines=["[00:00:01] initializing secure profile node...","[00:00:02] loading encoded profile payload...","[00:00:03] verifying integrity ............. OK","[00:00:04] mounting public identity ........ OK","[00:00:05] terminal session ................. READY"];
+ for(const line of lines){const row=document.createElement("span");row.textContent=line;log.appendChild(row);await sleep(280);}
+ document.getElementById("cmdCursor").style.display="none";await sleep(500);renderProfile(p);
 }
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function renderProfile(p){
+ document.getElementById("summaryJson").innerHTML=`<span class="key">"name"</span>: <span class="value">"${escapeHtml(p.identity.name)}"</span>,
+<span class="key">"role"</span>: <span class="value">"${escapeHtml(p.identity.role)}"</span>,
+<span class="key">"location"</span>: <span class="value">"${escapeHtml(p.identity.location)}"</span>,
+<span class="key">"status"</span>: <span class="value">"${escapeHtml(p.identity.status)}"</span>`;
+ const chips=document.getElementById("chips");p.skills.forEach(s=>{const c=document.createElement("span");c.className="chip";c.textContent=s;chips.appendChild(c);});
+ const timeline=document.getElementById("timeline");p.experience.forEach(item=>{const row=document.createElement("div");row.className="exp";row.innerHTML=`<div class="num">${item[0]}</div><div class="company">${escapeHtml(item[1])}</div><div class="desc">${escapeHtml(item[2])}</div>`;timeline.appendChild(row);});
+ document.getElementById("story").textContent=p.story;
+ const profile=document.getElementById("profile");profile.classList.remove("hidden");requestAnimationFrame(()=>profile.classList.add("ready"));document.getElementById("langBtn").disabled=false;
 }
-
-async function typeText(element, text, speed=18) {
-    element.textContent = "";
-    for (const char of text) {
-        element.textContent += char;
-        await sleep(speed);
-    }
-}
-
-async function bootSequence() {
-    const boot = document.getElementById("boot");
-
-    const lines = [
-        "BIOS :: murtiCV boot sequence initialized",
-        "KERNEL :: loading personal profile...",
-        "SECURITY :: encoded payload verified",
-        "NETWORK :: GitHub Pages connection established",
-        "SYSTEM :: ready"
-    ];
-
-    for (const line of lines) {
-        const div = document.createElement("div");
-        div.className = "boot-line";
-        boot.appendChild(div);
-        await typeText(div, line, 14);
-        await sleep(180);
-    }
-
-    await sleep(500);
-    boot.innerHTML = "";
-}
-
-async function showProfile() {
-    const profile = document.getElementById("profile");
-    const decoded = decodeHtml(encryptedData);
-
-    /*
-      İçeriği parçalara ayırıp terminal hissi veriyoruz.
-      HTML'in kendisi Base64 içinden geliyor; decode sonrası DOM'a ekleniyor.
-    */
-    const temp = document.createElement("div");
-    temp.innerHTML = decoded;
-
-    const children = Array.from(temp.children);
-
-    for (const child of children) {
-        const clone = child.cloneNode(true);
-        clone.style.opacity = "0";
-        clone.style.transition = "opacity .35s ease";
-        profile.appendChild(clone);
-
-        await sleep(250);
-        clone.style.opacity = "1";
-
-        if (clone.classList.contains("terminal-line")) {
-            await sleep(650);
-        } else {
-            await sleep(900);
-        }
-    }
-
-    document.getElementById("translateBtn").disabled = false;
-    document.getElementById("translateBtn").textContent = "Select_Language() 🌐";
-}
-
-async function startTerminal() {
-    await bootSequence();
-    await showProfile();
-}
-
-function openTranslate() {
-    const box = document.getElementById("google_translate_element");
-    if (document.getElementById("translateBtn").disabled) return;
-
-    box.style.display = box.style.display === "block" ? "none" : "block";
-}
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-        {
-            pageLanguage: "tr",
-            includedLanguages: "tr,en,de,es,fr,it,pt,ru,ar,zh-CN,ja,ko,nl,pl"
-        },
-        "google_translate_element"
-    );
-}
-
-startTerminal();
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
+function toggleTranslate(){const box=document.getElementById("translate");box.style.display=box.style.display==="block"?"none":"block";}
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"tr",includedLanguages:"tr,en,de,es,fr,it,pt,ru,ar,zh-CN,ja,ko,nl,pl",autoDisplay:false},"google_translate_element");}
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("keydown",e=>{if(e.key==="F12"||(e.ctrlKey&&e.shiftKey&&["I","J","C"].includes(e.key.toUpperCase()))||(e.ctrlKey&&e.key.toUpperCase()==="U"))e.preventDefault();});
+boot();
 </script>
-
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+</body></html>
