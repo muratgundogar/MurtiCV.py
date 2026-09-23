@@ -10,7 +10,7 @@
 <style>
 :root{--bg:#050608;--panel:#0a0d10;--line:#1b252c;--green:#35ff8a;--cyan:#47d7ff;--text:#d9e3e8;--muted:#68767e;--shadow:0 0 50px rgba(0,255,130,.06)}
 *{box-sizing:border-box} html{background:var(--bg);scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,rgba(0,255,130,.08),transparent 35%),radial-gradient(circle at 90% 80%,rgba(0,180,255,.035),transparent 28%),var(--bg);color:var(--text);font-family:"SFMono-Regular",Consolas,"Liberation Mono","Courier New",monospace;font-size:14px;line-height:1.55;overflow-x:hidden;user-select:none;-webkit-user-select:none}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,rgba(0,255,130,.08),transparent 35%),radial-gradient(circle at 90% 80%,rgba(0,180,255,.035),transparent 28%),var(--bg);color:var(--text);font-family:"SFMono-Regular",Consolas,"Liberation Mono","Courier New",monospace;font-size:14px;line-height:1.55;overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.028;background:repeating-linear-gradient(0deg,transparent 0 2px,#fff 2px 3px);mix-blend-mode:overlay;z-index:100}
 .shell{width:min(1080px,calc(100% - 24px));margin:24px auto 50px}
 .window{border:1px solid #243038;background:rgba(8,11,14,.94);border-radius:14px;box-shadow:var(--shadow),0 20px 80px rgba(0,0,0,.45);overflow:hidden;backdrop-filter:blur(10px)}
@@ -74,34 +74,41 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.028;b
 </div></main>
 
 <script>
-const encryptedData="eyJpZGVudGl0eSI6IHsibmFtZSI6ICJNdXJhdCBHw7xuZG/En2FyIiwgInJvbGUiOiAiSVQgT3BlcmF0aW9ucyDigKIgQ3liZXIgU2VjdXJpdHkg4oCiIFNvZnR3YXJlIiwgImxvY2F0aW9uIjogIlTDvHJraXllIiwgInN0YXR1cyI6ICJPTkxJTkUifSwgImV4cGVyaWVuY2UiOiBbWyIwMSIsICJJTlRFUk5FVCBDQUZFIiwgIlNpc3RlbSB5w7ZuZXRpbWksIGZvcm1hdCBvcGVyYXN5b25sYXLEsSwgc2NyaXB0IHZlIHlhesSxbMSxbSDDp2FsxLHFn21hbGFyxLEuIl0sIFsiMDIiLCAiQllOT0dBTUUiLCAiT3BlcmFzeW9uIHPDvHJlw6dsZXJpLCBrcml6IHnDtm5ldGltaSB2ZSBla2lwIGtvb3JkaW5hc3lvbnUuIl0sIFsiMDMiLCAiR0FNRVNBVElTIiwgIlRla25payBhbHR5YXDEsSwga3VsbGFuxLFjxLEgZGVzdGVrIG9wZXJhc3lvbmxhcsSxIHZlIGtvb3JkaW5hc3lvbi4iXSwgWyIwNCIsICLDllpFTCBIQVNUQU5FIiwgIkJpbGdpIMSwxZ9sZW0sIEhCWVMgdmUgSVQgc8O8cmXDp2xlcmluZGUgYXJ0YW4gc29ydW1sdWx1ay4iXSwgWyIwNSIsICLFnkVIxLBSIEhBU1RBTkVMRVLEsCIsICJLcml0aWsgSVQgYWx0eWFwxLFsYXLEsSwgZ8O8dmVubGlrIHlhesSxbMSxbWxhcsSxIHZlIHNpc3RlbSBlbnRlZ3Jhc3lvbmxhcsSxLiJdLCBbIjA2IiwgIkRFTlRBTCBMQUJPUkFUVVZBUiIsICLDnHJldGltLCBkaWppdGFsIGRpxZ8gdGFzYXLEsW3EsSwgdGVzZml5ZSwgacWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3Rpay4iXV0sICJza2lsbHMiOiBbIk9QRVJBVElPTlMiLCAiQ1lCRVJTRUNVUklUWSIsICJTT0ZUV0FSRSIsICJIQllTIiwgIkRFTlRBTCBURUNIIiwgIkxPR0lTVElDUyIsICJNT1RPUkNZQ0xFIiwgIlBST0JMRU0gU09MVklORyJdLCAic3RvcnkiOiAiVGVrbm9sb2ppeWUgb2xhbiBtZXJha8SxIGVya2VuIHlhxZ9sYXJkYSBiYcWfbGF5YW4gYmlyIHlvbGN1bHVrOyBzaXN0ZW0gecO2bmV0aW1pLCB5YXrEsWzEsW0sIElUIG9wZXJhc3lvbmxhcsSxLCBzaWJlciBnw7x2ZW5saWsgdmUgc2FoYSBvcGVyYXN5b25sYXLEsW7EsW4ga2VzacWfdGnEn2kgw6dvayB5w7ZubMO8IGJpciBrYXJpeWVyZSBkw7Zuw7zFn3TDvC4gQsO8ecO8ayBwbGF0Zm9ybWxhcmRhIG9wZXJhc3lvbiBzw7xyZcOnbGVyaSB5w7ZuZXR0aSwgc2HEn2zEsWsgc2VrdMO2csO8bmRlIElUIHZlIEhCWVMgYWx0eWFwxLFsYXLEsW5kYSBzb3J1bWx1bHVrIGFsZMSxLiBCdWfDvG4gZGVudGFsIGxhYm9yYXR1dmFyxLFuZGEgw7xyZXRpbSwgZGlqaXRhbCB0YXNhcsSxbSwgdGVzZml5ZSwgacWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3RpayBzw7xyZcOnbGVyaW5kZSBha3RpZiByb2wgw7xzdGxlbml5b3IuIFnDtm5ldGltIHlha2xhxZ/EsW3EsSBnZXJla3NpeiBtaWtybyB5w7ZuZXRpbWRlbiB1emFrOyBzb3J1bWx1bHVrIHZlcmVuLCBkb8SfcnVkYW4gaWxldGnFn2ltIGt1cmFuIHZlIHNhaGFkYSBzb251Y2Egb2Rha2xhbmFuIGJpciDDp2FsxLHFn21hIG1vZGVsaW5lIGRheWFuxLF5b3IuIn0=";
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-function decodeProfile(b64){const bin=atob(b64);const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));return JSON.parse(new TextDecoder("utf-8").decode(bytes));}
-async function typeInto(el,text,speed=38){el.textContent="";for(const c of text){el.textContent+=c;await sleep(speed);}}
+"use strict";
+const _0x={p:"eyJpZGVudGl0eSI6eyJuYW1lIjoiTXVyYXQgR8O8bmRvxJ9hciIsInJvbGUiOiJJVCBPcGVyYXRpb25zIOKAoiBDeWJlciBTZWN1cml0eSDigKIgU29mdHdhcmUiLCJsb2NhdGlvbiI6IlTDvHJraXllIiwic3RhdHVzIjoiT05MSU5FIn0sImV4cGVyaWVuY2UiOltbIjAxIiwiSU5URVJORVQgQ0FGRSIsIlNpc3RlbSB5w7ZuZXRpbWksIGZvcm1hdCBvcGVyYXN5b25sYXLEsSwgc2NyaXB0IHZlIHlhesSxbMSxbSDDp2FsxLHFn21hbGFyxLEuIl0sWyIwMiIsIkJZTk9HQU1FIiwiT3BlcmFzeW9uIHPDvHJlw6dsZXJpLCBrcml6IHnDtm5ldGltaSB2ZSBla2lwIGtvb3JkaW5hc3lvbnUuIl0sWyIwMyIsIkdBTUVTQVRJUyIsIlRla25payBhbHR5YXDEsSwga3VsbGFuxLFjxLEgZGVzdGVrIG9wZXJhc3lvbmxhcsSxIHZlIGtvb3JkaW5hc3lvbi4iXSxbIjA0Iiwiw5ZaRUwgSEFTVEFORVNJIiwiQmlsZ2kgxLDFn2xlbSwgSEJZUyB2ZSBJVCBzw7xyZcOnbGVyaW5kZSBhcnRhbiBzb3J1bWx1bHVrLiJdLFsiMDUiLCLFnkVIxLBSIEhBU1RBTkVMRVLEsCIsIktyaXRpayBJVCBhbHR5YXDEsWxhcsSxLCBnw7Z2ZW5saWsgKHlhesSxbMSxbWxhcsSxIHZlIHNpc3RlbSBlbnRlZ3Jhc3lvbmxhcsSxLiJdLFsiMDYiLCJERU5UQUwgTEFCT1JBVFVWQVIiLCLDnHJldGltLCBkaWppdGFsIGRpxZ8gdGFzYXLEsW3EsSwgdGVzZml5ZSwgaeWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3Rpay4iXV0sInNraWxscyI6WyJPUEVSQVRJT05TIiwiQ1lCRVJTRUNVUklUWSIsIlNPRlRXQVJFIiwiSEJZUyIsIkRFTlRBTCBURUNIIiwiTE9HSVNUSUNTIiwiTU9UT1JDWUNMRSIsIlBST0JMRU0gU09MVklORyJdLCJzdG9yeSI6IlRla25vbG9qaXllIG9sYW4gbWVyYWvEsSBlcmtlbiB5YcWfbGFyZGEgYmFhxZ9sYXlhbiBiaXIgeW9sY3VsdWs7IHNpc3RlbSB5w7ZuZXRpbWksIHlhesSxbMSxbSwgSVQgb3BlcmFzeW9ubGFyxLEsIHNpYmVyIGfDvHZlbmxpayB2ZSBzYWhhIG9wZXJhc3lvbmxhcsSxbsSxbiBrZXNpxZ90aXDEnykgw6dvayB5w7ZubMO8IGJpciBrYXJpeWVyZSBkw7Zuw7zFn3TDvC4gQsO8ecO8ayBwbGF0Zm9ybWxhcmRhIG9wZXJhc3lvbiBzw7xyZcOnbGVyaSB5w7ZuZXR0aSwgc2HEn2zEsWsgc2VrdMO2csO8bmRlIElUIHZlIEhCWVMgYWx0eWFwxLFsYXLEsW5kYSBzb3J1bWx1bHVrIGFsZMSxLiBCdWfDvG4gZGVudGFsIGxhYm9yYXR1dmFyxLFuZGEgw7xyZXRpbSwgZGlqaXRhbCB0YXNhcsSxbSwgdGVzZml5ZSwgaeWfIHRha2liaSwgY2FyaSBoZXNhcCB2ZSBsb2ppc3RpayBzw7xyZcOnbGVyaW5kZSBha3RpZiByb2wgw7xzdGxlbml5b3IuIFnDtm5ldGltIHlha2xhxZ/EsW3EsSBnZXJla3NpeiBtaWtybyB5w7ZuZXRpbWRlbiB1emFrOyBzb3J1bWx1bHVrIHZlcmVuLCBkb8SfcnVkYW4gaWxldGnFn2ltIGt1cmFuIHZlIHNhaGFkYSBzb251Y2Egb2Rha2xhbmFuIGJpciDDp2FsxLHFn21hIG1vZGVsaW5lIGRheWFuxLF5b3IuIn0="};
+const $=(i)=>document.getElementById(i);
+const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
+const dec=(b)=>{const s=atob(b),u=Uint8Array.from(s,c=>c.charCodeAt(0));return JSON.parse(new TextDecoder("utf-8").decode(u));};
+const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+async function type(el,txt,sp){el.textContent="";for(const c of txt){el.textContent+=c;await sleep(sp||35);}}
+function render(p){
+  $("summaryJson").innerHTML=`<span class="key">"name"</span>: <span class="value">"${esc(p.identity.name)}"</span>,
+<span class="key">"role"</span>: <span class="value">"${esc(p.identity.role)}"</span>,
+<span class="key">"location"</span>: <span class="value">"${esc(p.identity.location)}"</span>,
+<span class="key">"status"</span>: <span class="value">"${esc(p.identity.status)}"</span>`;
+  const ch=$("chips");p.skills.forEach(s=>{const e=document.createElement("span");e.className="chip";e.textContent=s;ch.appendChild(e);});
+  const tl=$("timeline");p.experience.forEach(x=>{const r=document.createElement("div");r.className="exp";r.innerHTML=`<div class="num">${esc(x[0])}</div><div class="company">${esc(x[1])}</div><div class="desc">${esc(x[2])}</div>`;tl.appendChild(r);});
+  $("story").textContent=p.story;
+  const pr=$("profile");pr.classList.remove("hidden");requestAnimationFrame(()=>pr.classList.add("ready"));$("langBtn").disabled=false;
+}
 async function boot(){
- const p=decodeProfile(encryptedData);
- document.getElementById("heroName").textContent=p.identity.name.toUpperCase();
- await typeInto(document.getElementById("typedCmd"),"python3 murtiCV.py --secure --profile",30);
- const log=document.getElementById("bootlog");
- const lines=["[00:00:01] initializing secure profile node...","[00:00:02] loading encoded profile payload...","[00:00:03] verifying integrity ............. OK","[00:00:04] mounting public identity ........ OK","[00:00:05] terminal session ................. READY"];
- for(const line of lines){const row=document.createElement("span");row.textContent=line;log.appendChild(row);await sleep(280);}
- document.getElementById("cmdCursor").style.display="none";await sleep(500);renderProfile(p);
+  const p=dec(_0x.p);
+  $("heroName").textContent=p.identity.name.toUpperCase();
+  await type($("typedCmd"),"python3 murtiCV.py --secure --profile",30);
+  const log=$("bootlog");
+  const L=["[00:00:01] initializing secure profile node...","[00:00:02] loading encoded profile payload...","[00:00:03] verifying integrity ............. OK","[00:00:04] mounting public identity ........ OK","[00:00:05] terminal session ................. READY"];
+  for(const l of L){const s=document.createElement("span");s.textContent=l;log.appendChild(s);await sleep(280);}
+  $("cmdCursor").style.display="none";await sleep(500);render(p);
 }
-function renderProfile(p){
- document.getElementById("summaryJson").innerHTML=`<span class="key">"name"</span>: <span class="value">"${escapeHtml(p.identity.name)}"</span>,
-<span class="key">"role"</span>: <span class="value">"${escapeHtml(p.identity.role)}"</span>,
-<span class="key">"location"</span>: <span class="value">"${escapeHtml(p.identity.location)}"</span>,
-<span class="key">"status"</span>: <span class="value">"${escapeHtml(p.identity.status)}"</span>`;
- const chips=document.getElementById("chips");p.skills.forEach(s=>{const c=document.createElement("span");c.className="chip";c.textContent=s;chips.appendChild(c);});
- const timeline=document.getElementById("timeline");p.experience.forEach(item=>{const row=document.createElement("div");row.className="exp";row.innerHTML=`<div class="num">${item[0]}</div><div class="company">${escapeHtml(item[1])}</div><div class="desc">${escapeHtml(item[2])}</div>`;timeline.appendChild(row);});
- document.getElementById("story").textContent=p.story;
- const profile=document.getElementById("profile");profile.classList.remove("hidden");requestAnimationFrame(()=>profile.classList.add("ready"));document.getElementById("langBtn").disabled=false;
-}
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
-function toggleTranslate(){const box=document.getElementById("translate");box.style.display=box.style.display==="block"?"none":"block";}
+function toggleTranslate(){const b=$("translate");b.style.display=b.style.display==="block"?"none":"block";}
 function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"tr",includedLanguages:"tr,en,de,es,fr,it,pt,ru,ar,zh-CN,ja,ko,nl,pl",autoDisplay:false},"google_translate_element");}
-document.addEventListener("contextmenu",e=>e.preventDefault());
-document.addEventListener("keydown",e=>{if(e.key==="F12"||(e.ctrlKey&&e.shiftKey&&["I","J","C"].includes(e.key.toUpperCase()))||(e.ctrlKey&&e.key.toUpperCase()==="U"))e.preventDefault();});
+document.addEventListener("keydown",e=>{if(e.key==="F9"){e.preventDefault();if(!$("langBtn").disabled)toggleTranslate();}});
+(function guard(){
+  const bd=()=>{document.documentElement.innerHTML="";document.body.style.background="#000";throw new Error("blocked");};
+  if(window.top!==window.self){try{window.top.location=window.self.location;}catch(e){}}
+  const t0=Date.now();setInterval(()=>{if(Date.now()-t0>3000&&document.readyState!=="complete"){}},1000);
+})();
+window.addEventListener("error",()=>{});
 boot();
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
